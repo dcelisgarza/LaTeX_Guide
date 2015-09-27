@@ -1,0 +1,50 @@
+\chapter{Referencing and Citing}
+\section{Referencing}
+%
+Referencing in \LaTeX~is extremely easy to do, all it requires is a label---\verb|\label{}|---and reference---\verb|ref{}| for non-equations, and \verb|\eqref{}| for equations---commands. Referencing floats also requires the label to come after a non-starred caption. 
+
+As long as an item can be \emph{uniquely} identified, it can be labeled and referenced. Labels are placed immediately following sectioning, ToC, appendix, and indexing commands; before line breaks in equations; and after the caption in floats. The \verb|hyperref| package loads further referencing capability, such as hyperlinks and colour-coded links depending on hyperlink type.
+
+The package \verb|cleveref| does not work on Overleaf, but adds incredibly useful functionality such as smart references, reference formats, reference ranges, compressed references, capitalisation, etc. It doesn't work when \verb|amsmath| and \verb|hyperref| are simultaneously loaded. Fortunately \verb|mathtools| is vastly superior to \verb|amsmath| in every respect, and does \emph{not} present this bug; so use it in place of \verb|amsmath| and enjoy the wonders of \verb|cleveref|.
+%
+\section{Bibliography}
+%
+One of the appeals of \LaTeX~is bibliography management. There are two ways of doing so:
+\begin{itemize}
+    \item Manually: better known as the hard way.
+    \item \BibTeX: better known as the only way. Google scholar also provides \texttt{.bib} files by clicking Cite under an article and selecting \BibTeX~at the bottom left of the popup window.
+\end{itemize}
+They can be referenced using the \verb|\cite[]{}|, where the optional chevrons can be omitted, and the bibliographic label is placed inside the braces.
+%
+\subsection{Manual}
+%
+Doing things manually means the user has to hard-code the style into the bibliography. The user adds the \verb|thebibliography| environment, which takes a numeric argument for the maximum number of bibliographic items:
+\begin{verbatim}
+	\begin{thebibliography}{99}
+	    \bibitem{<biblabel1_>} ...
+	    \bibitem{<biblabel2_>} ...
+	    ...
+	    \bibitem{<biblabel_n>}
+	\end{thebibliography}
+\end{verbatim}
+%
+\subsection{\BibTeX}\label{sb:bib}
+%
+The preferred way of handling bibliographies is by using the \verb|natbib| package together with \BibTeX. \verb|natbib| offers further citing options and commands which are too numerous and readily available\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/More_Bibliographies}} to be placed here. Though I'd like to mention \verb|\nocite{}|, because it adds the specified entry to the bibliography, but doesn't print the reference in-text. If the argument is an asterisk, *, all entries in the \verb|.bib| file are added to the bibliography regardless of whether they were cited or not.
+
+Using \BibTeX~requires a separate \verb|.bib| file, where entries are defined according to specific formats depending on the type of document or file to be cited, the first string of which is the bibliographic label. The following commands are then placed after all the document's content and before \verb|\end{document}|:
+\begin{verbatim}
+    \bibliographystyle{<style>}
+    \bibliography{<filename>}
+\end{verbatim}
+where the \verb|<style>| is replaced by a bibliographic style, and \verb|<filename>| is the \verb|.bib| file's name without extension (also accepts relative and absolute paths). There are many bibliographic styles found in \verb|natbib|'s manual or its wikibook entry\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management\#Natbib}}. They are not added here because their nuances are too subtle and involved for the purposes of this document. Other packages---especially journal-specific packages---add specialist styles.
+
+In order to fully compile a file with a \BibTeX~bibliography, the following compilation train must be followed:
+\begin{enumerate}
+    \item \XeLaTeX (or engine of your choice).
+    \item \BibTeX.
+    \item \XeLaTeX (or engine of your choice).
+    \item \XeLaTeX (or engine of your choice).
+\end{enumerate}
+This will ensure all references are parsed and the bibliography will be updated to show all the right entries with the correct style. Some editors can automate this process in a single shortcut.
+%

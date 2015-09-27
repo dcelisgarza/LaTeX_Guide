@@ -1,0 +1,89 @@
+\input{preamble}  % Input the document's preamble.
+
+\begin{document}
+%--------Front Matter--------%
+\setcounter{page}{1}			   % Start on page 1.
+\pagenumbering{roman}			   % Roman numerals for the front matter.
+
+%------------Front page------------%
+\thispagestyle{empty}			   % Clear canvas allows for a fully customisable front page.
+\begin{center}
+~
+	\vfill
+    {\fontsize{60}{60}\selectfont\LaTeX~Quick-Start Guide\\}
+    \vfill
+    \noindent Monterrey, N.L., Mexico \hfill Daniel Celis Garza \hfill \today\\
+\end{center}
+\newpage
+
+%----------Acknowledgements---------%
+\newpage
+\begin{center}
+    {\Large\bf{ACKNOWLEDGEMENTS}}
+\end{center}
+First, I would like to thank Prof. Marcelo Fernando Videa Vargas for introducing me to \LaTeX~via his fearsome exams.
+  
+Furthermore, there are a couple of organisations which made my learning possible such as: Stack Exchange's \LaTeX branch, 
+\url{http://tex.stackexchange.com/}; the Wikimedia Foundation's LaTeX wikibook \url{https://en.wikibooks.org/wiki/LaTeX};
+Reddit's \LaTeX~sub-reddit, \url{https://www.reddit.com/r/latex}; and the Comprehensive \TeX~Archive Network, 
+\url{https://www.ctan.org/}
+  
+%------------Dedication------------%
+\newpage
+\begin{center}
+    {\Large\bf{DEDICATION}}
+    
+    \vfill	
+    To my Ohana.
+    \vfill
+\end{center}
+
+%-------------Indexes--------------%
+\newpage
+\tableofcontents				   % Table of contents.
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables} % Add table index to the table of contents (toc).
+\listoftables					   % Table index.
+\cleardoublepage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures} % Add figure index to the toc.
+\listoffigures					   % Figure index.
+
+%-----------Middle Matter----------%
+\newpage
+\setcounter{page}{1}      % Start from page 1.
+\pagenumbering{arabic}    % Arabic numbering.
+
+%------------Introduction-------------%
+\part{Introduction to \LaTeX}
+\include{introduction}
+\include{features}
+
+%----------General Documents----------%
+\part{General \LaTeX~Documents}
+\include{document}
+\include{txt_env}
+\include{float_env}
+\include{math_env}
+\include{referencing}
+
+%------------Presentations------------%
+\part{\LaTeX~Presentations}
+
+%------------Conclusion------------%
+\part{Conclusions}
+\include{closing}
+
+%------------Back Matter-----------%
+\setcounter{originalpagenumber}{\number\value{page}} % Save page number so the bibliography follows the pre-appendix page sequence.
+
+%------------Appendix--------------%
+%\include{appendix}
+\pagenumbering{arabic} % Back to arabic numbering.
+\setcounter{page}{\number\value{originalpagenumber}} % Change the page counter so it follows the pre-appendix sequence.
+
+%-----------References-------------%
+\bibliographystyle{IEEEtran} % IEEE has the most complete bibliography format that meets the chemistry department's requirements.
+\bibliography{bibliography}
+\end{document}
