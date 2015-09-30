@@ -51,27 +51,13 @@
 \usepackage{multirow}              % Multirow and multicolumn tables (avoid when possible). If you cannot 
 				   % avoid such monsters use the Excel2LaTeX package (for Excel) from ctan 
 				   % or Calc2LaTeX (for LibreOffice Calc) from sourceforge.
-\usepackage{chngcntr}		   % Managing and creating counters (variables which count things).
 \usepackage[toc,page]{appendix}    % Appendix in table of contents.
-%\usepackage{minted}                % Displaying code colourfully. Requires a python 2.7 or higher installation for pygments. Also add "-shell-escape" flag to the compilation command.
-\usepackage{pdfpages}              % Include pdf pages.
 \usepackage[section]{placeins}     % Place floats in the section they're called.
 \usepackage{verbatim}              % Text editing features.
-\usepackage{array}		   % Extends the functionality of tables.
-\usepackage{lscape}                % Use landscape pages.
-\usepackage{exscale}               % Automatically scale mathematical notation appropriately. 
-				   % Useful when using special notation such as sum and 
-				   % multiplication notation, or nested sub and superscripts. 
-				   % No need to use \displaystyle.
 \usepackage{cleveref}              % Clever cross-references. Extremely useful package. 
 				   % Automatically states whether a reference is to a table, 
 				   % figure, equation, or bibliography item. Has a lot of 
 				   % options such as ranges, and citation styles.
-\usepackage{lmodern}		   % Cleaner, modern version of Computer Modern fonts.
-%\allowdisplaybreaks               % Lets the align environment ignore page breaks.
-%\newfontfamily\ubuntumono{Ubuntu Mono}  % For the theorists out there who want to use Ubuntu for your
-					 % write up and "experiments", and want to be fancy in including
-					 % shell commands, untuntu features or workflows, etc.
 \graphicspath{{images/}}          % Relative image path. Keep your stuff organised.
 
 %---------Special options----------%
@@ -99,3 +85,33 @@
 
 %----------Page Numbering----------%
 \newcounter{originalpagenumber}    % Page number counter for the bibliography after appendices.
+%
+% Packages of potential interest:
+%
+% - minted   :: Displaying code colourfully.  Requires Python 2.7 or
+%               higher for Pygments.  Also add "-shell-escape" flag to
+%               the compilation command.
+%
+%               (Pure-TeX alternative: listings)
+% - lscape   :: Easily specify specific pages to be landscape.
+% - chngcntr :: Managing 'counters' (figure 1, table 2.3, etc.).
+% - lmodern  :: Cleaner, more complete version of 'Computer Modern'.
+%               It doesn't make sense to use this *and* fontspec.
+% - pdfpages :: Include pages of a PDF.
+% - fontspec :: Use any font installed on your system.  Refer to docs.
+%
+% For all LaTeX packages and document classes, use the Texdoc program.
+% For example, to view the 'mhchem' documentation,
+%
+%     texdoc mhchem
+%
+% This is how you can find additional loading options, functionality,
+% and answers to common questions about the package/class.  It's a
+% good idea to skim (at least) the documentation of every
+% class/package you use.
+%
+%
+% Commands/switches of potential interest:
+%
+% \allowdisplaybreaks :: (amsmath)
+%                        Allow the {align} environment break across pages.
