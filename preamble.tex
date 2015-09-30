@@ -1,20 +1,25 @@
-%-----------------------------------------IMPORTANT-----------------------------------------%
-% PDFLaTeX is outdated and bad. Use XeLaTeX for compiling. In contrast to PDFLaTeX, 
-% XeLaTeX natively supports unicode characters (accents, degree symbol, emoji, dongers), 
-% has more features, and many more available packages. You may also need a few specialty 
-% packages that may not come as default in your TeX installation. Such packages are: 
-% xcolor, minted, mhchem and cleveref.
-
-% Comment out or remove any packages you do not use. Uncomment packages you do.
-%-------------------------------------------------------------------------------------------%
+%%%%%%%%%%%%%%%%%%%%%%%%%%   IMPORTANT   %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                                                                   %
+%  PDFLaTeX is  outdated and bad.  Use XeLaTeX for  compiling.  In  %
+%  contrast  to   PDFLaTeX,  XeLaTeX  natively   supports  unicode  %
+%  characters (accents,  degree symbol, emoji, dongers),  has more  %
+%  features, and many more available  packages.  You may also need  %
+%  a few specialty  packages that may not come as  default in your  %
+%  TeX installation.   Such packages  are: xcolor,  minted, mhchem  %
+%  and cleveref.                                                    %
+%                                                                   %
+%  Comment out or  remove any packages you do  not use.  Uncomment  %
+%  packages you do.                                                 %
+%                                                                   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[12pt]{report}      % Document type declaration.
 
-%--------------Logos--------------%
+%%% Logos
 \usepackage{doc}		  % \BibTeX, \AmSTeX
 \usepackage{metalogo}		  % \XeLaTeX, \XeTeX, \LuaLaTeX, \LuaTeX
 
-%------------Packages-------------%
+%%% Packages
 \usepackage[hyperref]{xcolor}     % Fancy colours.
 \usepackage{graphicx}             % Image manipulation.
 \usepackage{subcaption}           % Subfigures.
@@ -55,7 +60,7 @@
 				   % options such as ranges, and citation styles.
 \graphicspath{{images/}}          % Relative image path. Keep your stuff organised.
 
-%---------Special options----------%
+%%% Special options
 %\counterwithout{figure}{chapter}  % Uncomment to remove chapter number from figures.
 %\counterwithout{table}{chapter}   % Uncomment to remove chapter number in tables.
 \setlength{\topskip}{0in}          % Top paragraph spacing.
