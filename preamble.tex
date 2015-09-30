@@ -18,10 +18,7 @@
 \usepackage{metalogo}		  % \XeLaTeX, \XeTeX, \LuaLaTeX, \LuaTeX
 
 %------------Packages-------------%
-\usepackage[usenames,dvipsnames,  % Fancy colours.
-            svgnames,table,
-            x11names,
-            hyperref]{xcolor}
+\usepackage[hyperref]{xcolor}     % Fancy colours.
 \usepackage{graphicx}             % Image manipulation.
 \usepackage{subcaption}           % Subfigures.
 \usepackage[colorlinks=true,      % Hyperlinks
@@ -42,11 +39,12 @@
 					   % package with extra environments, symbols, and fonts),
 					   % more symbols, more symbols}.
 \usepackage{paralist}              % In-paragraph lists \begin{inparaenum}[options] \end{imparaenum}.
-\usepackage[top=1in,               % Document's geometric specs.
-		   bottom=1in,
-		   left=1.5in,
-		   right=1in
-		   ]{geometry}
+\usepackage[
+  top    = 1in,
+  bottom = 1in,
+  left   = 1.5in,
+  right  = 1in
+]{geometry}                        % Control page layout
 \usepackage{booktabs}		   % Professional-looking tables \toprule, \midrule, \cmidrule{}, \bottomrule
 \usepackage{multirow}              % Multirow and multicolumn tables (avoid when possible). If you cannot 
 				   % avoid such monsters use the Excel2LaTeX package (for Excel) from ctan 
