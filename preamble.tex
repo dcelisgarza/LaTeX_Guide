@@ -86,12 +86,6 @@
 	\hrule width \textwidth height 0.4pt
 	\kern 5pt
 	}
-\makeatletter
-\newcommand*{\codefont}{	   % Font size for code. Activate by typing \codefont.
-	\@setfontsize
-	\codefont{8.1pt}{8.1pt}
-	}
-\makeatother
 
 %-------User-define commands-------%
 % Note: For chemistry commands use mchem package commands.
@@ -103,8 +97,6 @@
 							  % partial derivative of a with respect to b.
 \newcommand{\nnum}{\nonumber\\}		% Nonumber and skip line. Useful for very long equations. Add the command
 					% \nnum at the end of equations that don't fit in a single line.
-\newcommand{\spth}{./scripts/}		% Relative path for scripts.
-\newcommand{\cpth}{./code/}		% Relative path for codes.
 
 %----------Page Numbering----------%
 \newcounter{originalpagenumber}    % Page number counter for the bibliography after appendices.
