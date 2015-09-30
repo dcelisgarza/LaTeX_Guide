@@ -7,58 +7,93 @@
 
 \documentclass[12pt]{report}      % Document type declaration.
 
-%%% Logos
-\usepackage{doc}		  % \BibTeX, \AmSTeX
-\usepackage{metalogo}		  % \XeLaTeX, \XeTeX, \LuaLaTeX, \LuaTeX
-
-%%% Packages
-\usepackage[hyperref]{xcolor}     % Fancy colours.
-\usepackage{graphicx}             % Image manipulation.
-\usepackage{subcaption}           % Subfigures.
-\usepackage[colorlinks=true,      % Hyperlinks
-            pdfstartview=FitV,
-            linkcolor=blue,
-            citecolor=blue,
-            urlcolor=blue,
-            hyperfootnotes=true
-            ]{hyperref}         
-\usepackage[version=3]{mhchem}     % Chemistry formulae, reaction equations, arrow customisation
-				   % and notation (different arrow types, catalysis, annotations, etc).
-\usepackage[comma,square,          % Citing style.
-           numbers,
-           sort&compress
-           ]{natbib}
-\newcommand\bmmax{2}			   % Load more maths alphabets.
-\usepackage{bm,mathtools,amssymb,pxfonts}  % Maths packages. {bold maths, (loads the amsmath 
-					   % package with extra environments, symbols, and fonts),
-					   % more symbols, more symbols}.
-\usepackage{paralist}              % In-paragraph lists \begin{inparaenum}[options] \end{imparaenum}.
 \usepackage[
   top    = 1in,
   bottom = 1in,
   left   = 1.5in,
-  right  = 1in
-]{geometry}                        % Control page layout
-\usepackage{booktabs}		   % Professional-looking tables \toprule, \midrule, \cmidrule{}, \bottomrule
-\usepackage{multirow}              % Multirow and multicolumn tables (avoid when possible). If you cannot 
-				   % avoid such monsters use the Excel2LaTeX package (for Excel) from ctan 
-				   % or Calc2LaTeX (for LibreOffice Calc) from sourceforge.
-\usepackage[toc,page]{appendix}    % Appendix in table of contents.
-\usepackage[section]{placeins}     % Place floats in the section they're called.
-\usepackage{verbatim}              % Text editing features.
-\usepackage{cleveref}              % Clever cross-references. Extremely useful package. 
-				   % Automatically states whether a reference is to a table, 
-				   % figure, equation, or bibliography item. Has a lot of 
-				   % options such as ranges, and citation styles.
-\graphicspath{{images/}}          % Relative image path. Keep your stuff organised.
+  right  = 1in,
+]{geometry}                     % Control page layout
 
-%%% Special options
-%\counterwithout{figure}{chapter}  % Uncomment to remove chapter number from figures.
-%\counterwithout{table}{chapter}   % Uncomment to remove chapter number in tables.
-\setlength{\parskip}{2ex}          % Bottom paragraph spacing.
+%%% Logos
+
+\usepackage{doc}		  % \BibTeX, \AmSTeX
+\usepackage{metalogo}		  % \XeLaTeX, \XeTeX, \LuaLaTeX, \LuaTeX
+
+%%% Document elements
+
+% Fancy colours
+\usepackage[hyperref]{xcolor}     
+
+% Images
+\usepackage{graphicx}             
+\graphicspath{{images/}}        % Image search paths
+
+% Chemistry support
+\usepackage[version=3]{mhchem}  
+
+% Citation style
+\usepackage[
+  comma,
+  square,       
+  numbers,
+  sort&compress,
+]{natbib}                       
+
+% Math packages
+\newcommand\bmmax{2}            % Load more maths alphabets in bm.
+\usepackage{bm}                 % bold maths
+\usepackage{mathtools}          % loads the AMSLaTeX packages
+\usepackage{amssymb}            % AMSTeX symbols
+\usepackage{pxfonts}            % More symbols (\oiint, etc.)
+
+% In-paragraph lists
+\usepackage{paralist}           
+
+% Professional tables
+\usepackage{booktabs}           
+
+% Multirow and multicolumn cells in tables
+\usepackage{multirow}           
+% Avoid using when possible -- it's usually poor table design.  If you
+% cannot avoid such monsters, you may be interested in the Excel2LaTeX
+% package (for Excel) from CTAN or Calc2LaTeX (for LibreOffice Calc)
+% from SourceForge.
+
+% Place floats in the section they're called.
+\usepackage[section]{placeins}     
+
+% More support for 'verbatim' content -- spans of text where TeX's
+% usual 'funny business' with characters like \, %, and & doesn't apply.
+\usepackage{verbatim}              
+
+%%% Cross-References
+
+% Appendix in table of contents.
+\usepackage[toc,page]{appendix} 
+
+% Subfigures
+\usepackage{subcaption}         
+
+% Clever cross-references.  Refer to documentation.
+\usepackage{cleveref}              
+
+% Bottom paragraph spacing.
+\setlength{\parskip}{2ex}
 
 \newcounter{originalpagenumber}    % Page number counter for the bibliography after appendices.
-%
+
+% Hyperlinks in the document (and turns cross-references into links)
+\usepackage[
+  colorlinks     = true,
+  pdfstartview   = FitV,
+  linkcolor      = blue,
+  citecolor      = blue,
+  urlcolor       = blue,
+  hyperfootnotes = true
+]{hyperref}
+
+
+
 % Packages of potential interest:
 %
 % - minted   :: Displaying code colourfully.  Requires Python 2.7 or
