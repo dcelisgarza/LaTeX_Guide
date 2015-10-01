@@ -1,32 +1,69 @@
 \chapter{Float Environments}
 %
-Floats are the names \LaTeX~gives environments which are uncoupled from normal text, i.e. can freely float around the document, namely figures and tables. \LaTeX~generally does a relatively good job at placing floats where they make sense. Unfortunately, it sometimes does an atrocious one---especially in documents with highly customised layouts---so the user has to intervene. Fortunately, there exist optional placement specifiers which give the user control over float placement. Table \ref{t:placspec}\footnote{Edited from \url{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}} shows possible placement specifiers and their meaning.
+Floats are the names \LaTeX~gives environments which are uncoupled
+from normal text, i.e. can freely float around the document, namely
+figures and tables.  \LaTeX~generally does a relatively good job at
+placing floats where they make sense.  Unfortunately, it sometimes does
+an atrocious one---especially in documents with highly customised
+layouts---so the user has to intervene.  Fortunately, there exist
+optional placement specifiers which give the user control over float
+placement.  Table \ref{t:placspec}\footnote{Edited from
+  \url{https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions}}
+shows possible placement specifiers and their meaning.
 \begin{table}[!htbp]
-    \centering
-    \caption{Table with placement specifiers and their description.}
-    \label{t:placspec}
-    \begin{tabular}{cl}
-        \toprule
-        Specifier & Description\\
-        \midrule
-        h   & Place \emph{approximately} where it occurs in the source code.\\
-        t   & Place at the \emph{top} of the page.\\
-        b   & Place at the \emph{bottom} of the page.\\
-        p   & Place in a \emph{dedicated} page.\\
-        H   & Place \emph{exactly} where it occurs in the source code, needs \verb|float| package.\\
-        !   & Overrides \LaTeX parameters for determining good float positions.\\
-        !htbp   & Overrides \LaTeX parameters and finds the best position out of all placings.\\
-        \bottomrule
-    \end{tabular}
+  \centering
+  \caption{Table with placement specifiers and their description.}
+  \label{t:placspec}
+  \begin{tabular}{cl}
+    \toprule
+    Specifier & Description\\
+    \midrule
+    h   & Place \emph{approximately} where it occurs in the source code.\\
+    t   & Place at the \emph{top} of the page.\\
+    b   & Place at the \emph{bottom} of the page.\\
+    p   & Place in a \emph{dedicated} page.\\
+    H   & Place \emph{exactly} where it occurs in the source code, needs \verb|float| package.\\
+    !   & Overrides \LaTeX parameters for determining good float positions.\\
+    !htbp   & Overrides \LaTeX parameters and finds the best position out of all placings.\\
+    \bottomrule
+  \end{tabular}
 \end{table}
 
-Along with these, there's the command, \verb|\FloatBarrier|, which forces all previous floats to be rendered before it. And the \verb|placeins| package, often used with the \verb|section| option, which forces floats to be placed within the section they are called.
+Along with these, there's the command, \verb|\FloatBarrier|, which
+forces all previous floats to be rendered before it.  And the
+\verb|placeins| package, often used with the \verb|section| option,
+which forces floats to be placed within the section they are called.
 
-Generally, floats require a caption, which is added by the command \verb|\caption{}|. As a rule, table captions in tables are found at the top, while figure captions at the bottom. There is also a starred version, \verb|\caption*{}|, that eliminates the float number, useful when tables or figures need notes. In order to reference a float, it must be assigned a label, \verb|\label{}|, after the caption. If a float has no caption but needs a label, an empty caption can be added before labeling, \verb|\caption{}\label{label}|\footnote{Do \emph{not} use starred captions when labeling, otherwise there will be nothing---but emptiness and deep internal sadness---for the label to reference.}. Floats are also generally centered on a page/column, so the \verb|\centering| alignment switch is usually the first line in a float environment. In multicolumn documents, the normal environments may overlap with the text and each other. Starred versions, \verb|{figure*}| and \verb|{table*}| avoid this issue by reserving the whole page width (the value of \verb|\width|) for the float. Unfortunately, not all placement options work with starred floats.
+Generally, floats require a caption, which is added by the command
+\verb|\caption{}|.  As a rule, table captions in tables are found at
+the top, while figure captions at the bottom.  There is also a starred
+version, \verb|\caption*{}|, that eliminates the float number, useful
+when tables or figures need notes.  In order to reference a float, it
+must be assigned a label, \verb|\label{}|, after the caption.  If a
+float has no caption but needs a label, an empty caption can be added
+before labeling, \verb|\caption{}\label{label}|\footnote{Do \emph{not}
+  use starred captions when labeling, otherwise there will be
+  nothing---but emptiness and deep internal sadness---for the label to
+  reference.}.  Floats are also generally centered on a page/column,
+so the \verb|\centering| alignment switch is usually the first line in
+a float environment.  In multicolumn documents, the normal
+environments may overlap with the text and each other.  Starred
+versions, \verb|{figure*}| and \verb|{table*}| avoid this issue by
+reserving the whole page width (the value of \verb|\width|) for the
+float.  Unfortunately, not all placement options work with starred
+floats.
 %
 \subsection{Figures}
 %
-Documents often require the user to add images as figures or standalone inputs. As with many things, it is common knowledge that an angel looses its wings every time someone inserts a \texttt{.jpg} into a \LaTeX document. So for the love of ceiling cat \includegraphics[scale=0.4]{ceiling-cat.jpg}, use vectorised images such as \texttt{.eps}, \texttt{.ps}, and \texttt{.pdf}. The only exceptions are scatter plots and heat maps, where it's advisable to use \texttt{.bmp} or \texttt{.png} instead---as they are more accurate in such cases.
+Documents often require the user to add images as figures or
+standalone inputs.  As with many things, it is common knowledge that
+an angel looses its wings every time someone inserts a \texttt{.jpg}
+into a \LaTeX document.  So for the love of ceiling
+cat \includegraphics[scale=0.4]{ceiling-cat.jpg}, use vectorised
+images such as \texttt{.eps}, \texttt{.ps}, and \texttt{.pdf}.  The
+only exceptions are scatter plots and heat maps, where it's advisable
+to use \texttt{.bmp} or \texttt{.png} instead---as they are more
+accurate in such cases.
 
 The \verb|figure| environment is generally used in the following way:
 \begin{verbatim}
@@ -38,30 +75,35 @@ The \verb|figure| environment is generally used in the following way:
 	\end{figure}
 \end{verbatim}
 
-\verb|\includegraphics[]{}| can be used on its own to include in-line images. Its options and their descriptions are found in table \ref{t:inclgraph}\footnote{Edited from \url{https://en.wikibooks.org/wiki/LaTeX/Importing_Graphics}.}.
+\verb|\includegraphics[]{}| can be used on its own to include in-line
+images.  Its options and their descriptions are found in table
+\ref{t:inclgraph}\footnote{Edited from
+  \url{https://en.wikibooks.org/wiki/LaTeX/Importing_Graphics}.}.
 \begin{table}
-    \centering
-    \caption{Options and their descriptions for the \texttt{\textbackslash includegraphics} command.}
-    \label{t:inclgraph}
-    \begin{tabular}{rl}
-        \toprule
-        Option				& Description\\
-        \midrule
-        \verb|width=x|		& Image width $x$.\\
-        \verb|height=y|		& Image height $y$.\\
-        \verb|keepaspectratio|		& \verb|true|, \verb|false|. Keep aspect ratio with max width $x$ and height $y$.\\
-        \verb|scale=x|		& Scale by factor $x$.\\
-        \verb|angle=x|		& Rotate by $x$° (standard rotation).\\
-        \verb|trim=l b r t|	& Trim left l, bott b, right r, top t (broken in \XeLaTeX).\\
-        \verb|clip|			& Has to be \verb|true| for trim to work.\\
-        \verb|resolution=x|	& Image resolution in $x$ dpi.\\
-        \bottomrule
-    \end{tabular}
+  \centering
+  \caption{Options and their descriptions for the \texttt{\textbackslash includegraphics} command.}
+  \label{t:inclgraph}
+  \begin{tabular}{rl}
+    \toprule
+    Option				& Description\\
+    \midrule
+    \verb|width=x|		& Image width $x$.\\
+    \verb|height=y|		& Image height $y$.\\
+    \verb|keepaspectratio|		& \verb|true|, \verb|false|. Keep aspect ratio with max width $x$ and height $y$.\\
+    \verb|scale=x|		& Scale by factor $x$.\\
+    \verb|angle=x|		& Rotate by $x$° (standard rotation).\\
+    \verb|trim=l b r t|	& Trim left l, bott b, right r, top t (broken in \XeLaTeX).\\
+    \verb|clip|			& Has to be \verb|true| for trim to work.\\
+    \verb|resolution=x|	& Image resolution in $x$ dpi.\\
+    \bottomrule
+  \end{tabular}
 \end{table}
 \FloatBarrier
 \subsection{Subfigures}
 %
-The \verb|subfigure| environment can only be declared within the \verb|figure| environment, and requires the \verb|subcaption| package. Its usage is as follows:
+The \verb|subfigure| environment can only be declared within the
+\verb|figure| environment, and requires the \verb|subcaption| package.
+Its usage is as follows:
 \begin{verbatim}
 	\begin{figure}
 	    \centering
@@ -92,7 +134,8 @@ The \verb|subfigure| environment can only be declared within the \verb|figure| e
 	    \caption{Pictures of memes.}\label{f:memes}
 	\end{figure}
 \end{verbatim}
-Which produces the output found in figs. \ref{f:memes}, \ref{f:dankmeme}, \ref{f:ceilingcat}, \ref{f:watoge} and \ref{f:mlg}:
+Which produces the output found in figs. \ref{f:memes},
+\ref{f:dankmeme}, \ref{f:ceilingcat}, \ref{f:watoge} and \ref{f:mlg}:
 \begin{figure}[!htbp]
     \centering
     \begin{subfigure}[t]{0.45\textwidth} % t = align subfigure on top.
@@ -125,13 +168,27 @@ Which produces the output found in figs. \ref{f:memes}, \ref{f:dankmeme}, \ref{f
 %
 \section{Tables}
 %
-Tables in \LaTeX~can either be the source of great pride or great pain. Done right, they look classy and slick\ldots done wrong, they are tacky and I hate them\footnote{Stickin' it to `The Man'.}. Before designing a table, you must answer me these questions three\footnote{You seek the holy grail.}:
+Tables in \LaTeX~can either be the source of great pride or great
+pain.  Done right, they look classy and slick\ldots done wrong, they
+are tacky and I hate them\footnote{Stickin' it to `The Man'.}.  Before
+designing a table, you must answer me these questions
+three\footnote{You seek the holy grail.}:
 \begin{enumerate}
-    \item Readability: is it easily understandable?
-    \item Minimalism: does it contain the minimum required information---does it minimise redundancy?
-    \item Simplicity: how many borders does it have---does it really need all those vertical and/or horizontal borders?
+\item Readability: is it easily understandable?
+\item Minimalism: does it contain the minimum required
+  information---does it minimise redundancy?
+\item Simplicity: how many borders does it have---does it really need
+  all those vertical and/or horizontal borders?
 \end{enumerate}
-The package \verb|booktabs| provides improved versions of the horizontal line commands, \verb|\hline| and \verb|\cline{}|.\footnote{If there's a need for non-tabular horizontal lines---such as redefining footnote rules---you should still use \texttt{\textbackslash hline}.} They are: \verb|\toprule|, \verb|\midrule|, \verb|\cmidrule{}|, and \verb|\bottomrule|. They all provide additional spacing to make tables more readable, and accept options to modify their trimming and thickness. A table is declared in the following way:
+The package \verb|booktabs| provides improved versions of the
+horizontal line commands, \verb|\hline| and
+\verb|\cline{}|.\footnote{If there's a need for non-tabular horizontal
+  lines---such as redefining footnote rules---you should still use
+  \texttt{\textbackslash hline}.}  They are: \verb|\toprule|,
+\verb|\midrule|, \verb|\cmidrule{}|, and \verb|\bottomrule|.  They all
+provide additional spacing to make tables more readable, and accept
+options to modify their trimming and thickness.  A table is declared
+in the following way:
 \begin{verbatim}
 	\begin{table}[<placement_specifier>]
 	    \centering
@@ -141,7 +198,7 @@ The package \verb|booktabs| provides improved versions of the horizontal line co
 	        \toprule
 	        heading 1 & ... & heading n
 	        \midrule
-	        a_11 & ... & a_1n \\ 
+	        a_11 & ... & a_1n \\
 	        .
 	                .
 	                        .
@@ -151,9 +208,22 @@ The package \verb|booktabs| provides improved versions of the horizontal line co
 	\end{table}
 \end{verbatim}
 
-In line with the three principles of table design, one must avoid borders as much as possible without sacrificing readability. For most purposes, tables only need horizontal lines at the top, bottom, and for separating heading from the body. There is also \verb|\cmidrule{i-j}| which spans columns $i$ to $j$. The \verb|array| package extends table functionality by providing extra arguments for table customisation. The columns are represented by \verb|l|, \verb|c| and \verb|r| for left, center and right alignment, they can be placed immediately after one another or separated by spaces. Vertical borders are denoted by \verb+|+ between columns. The actual columns are then separated by ampersands \verb|&|. If the number of columns is $n$, the number of ampersands is $n-1$. 
+In line with the three principles of table design, one must avoid
+borders as much as possible without sacrificing readability.  For most
+purposes, tables only need horizontal lines at the top, bottom, and
+for separating heading from the body.  There is also
+\verb|\cmidrule{i-j}| which spans columns $i$ to $j$.  The
+\verb|array| package extends table functionality by providing extra
+arguments for table customisation.  The columns are represented by
+\verb|l|, \verb|c| and \verb|r| for left, center and right alignment,
+they can be placed immediately after one another or separated by
+spaces.  Vertical borders are denoted by \verb+|+ between columns.
+The actual columns are then separated by ampersands \verb|&|.  If the
+number of columns is $n$, the number of ampersands is $n-1$.
 
-To showcase what we have learned of tables up to now, table \ref{t:example} is an example of a very poorly formatted table. Its generating code is:
+To showcase what we have learned of tables up to now, table
+\ref{t:example} is an example of a very poorly formatted table.  Its
+generating code is:
 \begin{verbatim}
 	\begin{table}
 	    \centering
@@ -185,16 +255,26 @@ To showcase what we have learned of tables up to now, table \ref{t:example} is a
     \end{tabular}
 \end{table}
 
-The documentation for \verb|booktabs| contains further information on table design, formatting, and package features.
+The documentation for \verb|booktabs| contains further information on
+table design, formatting, and package features.
 %
 \subsection{Multicolumn and Multirow Tables}
 %
-Sometimes tables have fields which span more than one row or column (sometimes both). When this is unavoidable, the \verb|multirow| package provides the commands:
+Sometimes tables have fields which span more than one row or column
+(sometimes both).  When this is unavoidable, the \verb|multirow|
+package provides the commands:
 \begin{verbatim}
 	\verb|\multirow{num_rows}{width}{contents}|
 	\verb|\multicolumn{num_columns}{column_alignment and borders}{contents}|
 \end{verbatim}
-An asterisk ``*'' as width in \verb|\multirow| stands for the contents' natural width. \verb|\multicolumn| gobbles all relevant columns, so there's no need to add the gobbled ampersands. If \verb|\multirow| is used, all subsequent rows in the same column(s) must be left empty and take up the same number of columns. Table \ref{t:multirowcol} was sourced directly from the wiki entry for tables\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Tables}} because it's an excellent non-trivial minimal working example:
+An asterisk ``*'' as width in \verb|\multirow| stands for the
+contents' natural width.  \verb|\multicolumn| gobbles all relevant
+columns, so there's no need to add the gobbled ampersands.  If
+\verb|\multirow| is used, all subsequent rows in the same column(s)
+must be left empty and take up the same number of columns.  Table
+\ref{t:multirowcol} was sourced directly from the wiki entry for
+tables\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Tables}}
+because it's an excellent non-trivial minimal working example:
 \begin{verbatim}
 	\begin{table}
 	    \centering
@@ -216,27 +296,33 @@ An asterisk ``*'' as width in \verb|\multirow| stands for the contents' natural 
 	\end{table}
 \end{verbatim}
 \begin{table}[!htbp]
-    \centering
-    \caption{Multirow and multicolumn table.}
-    \label{t:multirowcol}
-    \begin{tabular}{cc|c|c|c|c|l}
-        \cline{3-6}
-        & & \multicolumn{4}{ c| }{Primes} \\ \cline{3-6}
-        & & 2 & 3 & 5 & 7 \\ \cline{1-6}
-        \multicolumn{1}{ |c  }{\multirow{2}{*}{Powers} } &
-        \multicolumn{1}{ |c| }{504} & 3 & 2 & 0 & 1 &     \\ \cline{2-6}
-        \multicolumn{1}{ |c  }{}                        &
-        \multicolumn{1}{ |c| }{540} & 2 & 3 & 1 & 0 &     \\ \cline{1-6}
-        \multicolumn{1}{ |c  }{\multirow{2}{*}{Powers} } &
-        \multicolumn{1}{ |c| }{gcd} & 2 & 2 & 0 & 0 & min \\ \cline{2-6}
-        \multicolumn{1}{ |c  }{}                        &
-        \multicolumn{1}{ |c| }{lcm} & 3 & 3 & 1 & 1 & max \\ \cline{1-6}
+  \centering
+  \caption{Multirow and multicolumn table.}
+  \label{t:multirowcol}
+  \begin{tabular}{cc|c|c|c|c|l}
+    \cline{3-6}
+    & & \multicolumn{4}{ c| }{Primes} \\ \cline{3-6}
+    & & 2 & 3 & 5 & 7 \\ \cline{1-6}
+    \multicolumn{1}{ |c  }{\multirow{2}{*}{Powers} } &
+    \multicolumn{1}{ |c| }{504} & 3 & 2 & 0 & 1 &     \\ \cline{2-6}
+    \multicolumn{1}{ |c  }{}                        &
+    \multicolumn{1}{ |c| }{540} & 2 & 3 & 1 & 0 &     \\ \cline{1-6}
+    \multicolumn{1}{ |c  }{\multirow{2}{*}{Powers} } &
+    \multicolumn{1}{ |c| }{gcd} & 2 & 2 & 0 & 0 & min \\ \cline{2-6}
+    \multicolumn{1}{ |c  }{}                        &
+    \multicolumn{1}{ |c| }{lcm} & 3 & 3 & 1 & 1 & max \\ \cline{1-6}
     \end{tabular}
 \end{table}
 %
 \subsection{Multipage Tables}
 %
-Sometimes a project requires tables which span more than a single page. For cases such as these, the \verb|longtable| package provides the \verb|longtable| environment, which offers customisation commands relevant to multipage tables\footnote{\url{http://mirrors.rit.edu/CTAN/macros/latex/required/tools/longtable.pdf}}. \verb|longtable| does not need the \verb|tabular| environment, it is declared as follows:
+Sometimes a project requires tables which span more than a single
+page.  For cases such as these, the \verb|longtable| package provides
+the \verb|longtable| environment, which offers customisation commands
+relevant to multipage
+tables\footnote{\url{http://mirrors.rit.edu/CTAN/macros/latex/required/tools/longtable.pdf}}.
+\verb|longtable| does not need the \verb|tabular| environment, it is
+declared as follows:
 \begin{verbatim}
 	\begin{longtable}{<n columns (with alignment), vertical borders>}
 	    \caption{caption}
@@ -244,7 +330,7 @@ Sometimes a project requires tables which span more than a single page. For case
 	    \toprule
 	    heading 1 & ... & heading n
 	    \midrule
-	    a_11 & ... & a_1n \\ 
+	    a_11 & ... & a_1n \\
 	    .
 	            .
 	                    .
@@ -252,5 +338,8 @@ Sometimes a project requires tables which span more than a single page. For case
 	    \bottomrule
 	\end{longtable}
 \end{verbatim}
-\verb|longtable| also works with the functionality offered by the \verb|multirow| package. However, multiple compilations ($4+$) may be required to get long tables with multirows and/or multicolumns looking as they should.
+\verb|longtable| also works with the functionality offered by the
+\verb|multirow| package.  However, multiple compilations ($4+$) may be
+required to get long tables with multirows and/or multicolumns looking
+as they should.
 %

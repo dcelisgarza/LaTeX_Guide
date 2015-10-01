@@ -4,7 +4,7 @@
 %  packages you do.                                                 %
 %                                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\RequirePackage{pkgloader}
 \documentclass[12pt]{report}      % Document type declaration.
 
 \usepackage[
@@ -22,22 +22,21 @@
 %%% Document elements
 
 % Fancy colours
-\usepackage[hyperref]{xcolor}     
+\usepackage[hyperref]{xcolor}
 
 % Images
-\usepackage{graphicx}             
-\graphicspath{{images/}}        % Image search paths
+\usepackage{graphicx}
 
 % Chemistry support
-\usepackage[version=3]{mhchem}  
+\usepackage[version=3]{mhchem}
 
 % Citation style
 \usepackage[
   comma,
-  square,       
+  square,
   numbers,
   sort&compress,
-]{natbib}                       
+]{natbib}
 
 % Math packages
 \newcommand\bmmax{2}            % Load more maths alphabets in bm.
@@ -47,35 +46,35 @@
 \usepackage{pxfonts}            % More symbols (\oiint, etc.)
 
 % In-paragraph lists
-\usepackage{paralist}           
+\usepackage{paralist}
 
 % Professional tables
-\usepackage{booktabs}           
+\usepackage{booktabs}
 
 % Multirow and multicolumn cells in tables
-\usepackage{multirow}           
+\usepackage{multirow}
 % Avoid using when possible -- it's usually poor table design.  If you
 % cannot avoid such monsters, you may be interested in the Excel2LaTeX
 % package (for Excel) from CTAN or Calc2LaTeX (for LibreOffice Calc)
 % from SourceForge.
 
 % Place floats in the section they're called.
-\usepackage[section]{placeins}     
+\usepackage[section]{placeins}
 
 % More support for 'verbatim' content -- spans of text where TeX's
 % usual 'funny business' with characters like \, %, and & doesn't apply.
-\usepackage{verbatim}              
+\usepackage{verbatim}
 
 %%% Cross-References
 
 % Appendix in table of contents.
-\usepackage[toc,page]{appendix} 
+\usepackage[toc,page]{appendix}
 
 % Subfigures
-\usepackage{subcaption}         
+\usepackage{subcaption}
 
 % Clever cross-references.  Refer to documentation.
-\usepackage{cleveref}              
+\usepackage{cleveref}
 
 % Bottom paragraph spacing.
 \setlength{\parskip}{2ex}
@@ -92,7 +91,8 @@
   hyperfootnotes = true
 ]{hyperref}
 
-
+\LoadPackagesNow
+\graphicspath{{images/}}        % Image search paths
 
 % Packages of potential interest:
 %

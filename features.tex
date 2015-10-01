@@ -2,60 +2,120 @@
 %
 \section{Preamble}\label{s:p}
 %
-The preamble is where a document's overall characteristics are defined. Things such as required packages, page setup and layout, user-defined and user-edited macros, as well as titular information are all defined in the preamble.
+The preamble is where a document's overall characteristics are
+defined.  Things such as required packages, page setup and layout,
+user-defined and user-edited macros, as well as titular information
+are all defined in the preamble.
 %
 \subsection{Declaring a Document Class}
 %
-The first line of the preamble is where the user declares the document type, default font size, and paper size.
+The first line of the preamble is where the user declares the document
+type, default font size, and paper size.
 
-It is well known that only barbarians utilise non-International Standard Paper Sizes (ISO 216 \& 269)\footnote{\url{https://en.wikipedia.org/wiki/Paper_size}}. According to the all-knowing and less-wrong-than-encyclopaedia-britannica, wikipedia.org \cite{wikipediavsbritannica1,wikipediavsbritannica2,wikipediavsbritannica3}, Mexico is one such barbaric place. One can be an enlightened rebel---and use the A-series sizes---or a barbaric conformist and use non-standard sizes like so:
+It is well known that only barbarians utilise non-International
+Standard Paper Sizes (ISO 216 \&
+269)\footnote{\url{https://en.wikipedia.org/wiki/Paper_size}}.
+According to the all-knowing and
+less-wrong-than-encyclopaedia-britannica, wikipedia.org
+\cite{wikipediavsbritannica1,wikipediavsbritannica2,wikipediavsbritannica3},
+Mexico is one such barbaric place.  One can be an enlightened
+rebel---and use the A-series sizes---or a barbaric conformist and use
+non-standard sizes like so:
 \begin{verbatim}
 	\documentclass[12pt,letterpaper]{article}
 \end{verbatim}
 
 There are many document classes but the most common ones are:
 \begin{inparaenum}[\itshape 1\upshape)]
-    \item \verb|article|,
-    \item \verb|report|,
-    \item \verb|book|,
-    \item \verb|letter|, and
-    \item \verb|beamer|.
+\item \verb|article|,
+\item \verb|report|,
+\item \verb|book|,
+\item \verb|letter|, and
+\item \verb|beamer|.
 \end{inparaenum}
-These provide the overall document format. In some cases, they also automatically load certain packages and provide custom commands and/or environments. The most obvious example of this is the \verb|beamer| class, which automatically loads the \verb|hyperref| package and provides custom commands and environments such as \verb|\frametitle{}| and \verb|frame|, respectively.
+These provide the overall document format.  In some cases, they also
+automatically load certain packages and provide custom commands and/or
+environments.  The most obvious example of this is the \verb|beamer|
+class, which automatically loads the \verb|hyperref| package and
+provides custom commands and environments such as \verb|\frametitle{}|
+and \verb|frame|, respectively.
 
-The following are common options of the \verb|\documentclass| command, default values appear in \textbf{bold}:
+The following are common options of the \verb|\documentclass| command,
+default values appear in \textbf{bold}:
 \begin{itemize}
-    \item Equation numbering (left or right): \verb|leqno|, \textbf{\texttt{reqno}}.
-    \item Document language: \verb|german|, \verb|greek|, \verb|spanish|, \textbf{\texttt{english}}. Can be overridden with the \verb|babel| and \verb|polyglossia| packages.
-    \item Page orientation: \verb|landscape|, \textbf{\texttt{portrait}}.
-    \item Text columns: \verb|twocolumn|, \textbf{\texttt{onecolumn}}.
-    \item Font size: Any font size, \textbf{\texttt{12pt}}.
-    \item Paper size: Any official ISO and non-ISO paper size as well as a custom paper size override, \textbf{\texttt{letterpaper}}.
+\item Equation numbering (left or right): \verb|leqno|,
+  \textbf{\texttt{reqno}}.
+\item Document language: \verb|german|, \verb|greek|, \verb|spanish|,
+  \textbf{\texttt{english}}.  Can be overridden with the \verb|babel|
+  and \verb|polyglossia| packages.
+\item Page orientation: \verb|landscape|, \textbf{\texttt{portrait}}.
+\item Text columns: \verb|twocolumn|, \textbf{\texttt{onecolumn}}.
+\item Font size: Any font size, \textbf{\texttt{12pt}}.
+\item Paper size: Any official ISO and non-ISO paper size as well as a
+  custom paper size override, \textbf{\texttt{letterpaper}}.
 \end{itemize}
 
-Modern \LaTeX~editors have wizards that automatically declare document class and load essential packages via graphical user interface (GUI). They let the user decide which common options and packages they want to load without actually having to write all the code and memorise all relevant options.
+Modern \LaTeX~editors have wizards that automatically declare document
+class and load essential packages via graphical user interface (GUI).
+They let the user decide which common options and packages they want
+to load without actually having to write all the code and memorise all
+relevant options.
 %
 \subsection{Package Declaration}
 %
-After declaring a document class, users must declare all relevant packages. This is done as follows:
+After declaring a document class, users must declare all relevant
+packages.  This is done as follows:
 \begin{verbatim}
 	\usepackage[options]{name}
 \end{verbatim}
-The order in which some packages are loaded may affect their behaviour as dependencies need to be loaded before the packages that use them. A package's load order and dependencies are often specified either in its documentation and/or wikibook entry.
+The order in which some packages are loaded may affect their behaviour
+as dependencies need to be loaded before the packages that use them.
+A package's load order and dependencies are often specified either in
+its documentation and/or wikibook entry.
 
 Some of the most used packages include:
 \begin{itemize}
-    \item \verb|babel|: sets punctuation (hyphenation), part, chapter, section, subsection, subsubsection, figure, subfigure, table, etc. to the language of your choice. \verb|polyglossia| is the \XeLaTeX~alternative, but \verb|babel| still has more regional options such as \verb|[spanish,mexico]|.
-    \item \verb|fontspec|: loads utf-8 encoded fonts, natively supports accents---even in \texttt{.bib} files---and works on \XeLaTeX~and \LuaTeX. It replaces PDF\LaTeX's \verb|inputenc| and \verb|latin| packages; both of which require options in order to use unicode characters, and have trouble with accented unicode characters in \texttt{.bib} files.
-    \item \verb|xcolor|: provides tons of colour customisation and declaration, as well as a wide variety of predefined colours. Contains many options which expand the default colour palatte.
-    \item \verb|hypperref|: provides hyperlinks for references, footnotes, citations, and URLs. Contains various options which allow the user to customise their behaviour and appearance.
-    \item \verb|geometry|: provides page layout specifications for customisable margins and paper sizes. 
+\item \verb|babel|: sets punctuation (hyphenation), part, chapter,
+  section, subsection, subsubsection, figure, subfigure, table,
+  etc. to the language of your choice.  \verb|polyglossia| is the
+  \XeLaTeX~alternative, but \verb|babel| still has more regional
+  options such as \verb|[spanish,mexico]|.
+\item \verb|fontspec|: loads utf-8 encoded fonts, natively supports
+  accents---even in \texttt{.bib} files---and works on \XeLaTeX~and
+  \LuaTeX.  It replaces PDF\LaTeX's \verb|inputenc| and \verb|latin|
+  packages; both of which require options in order to use unicode
+  characters, and have trouble with accented unicode characters in
+  \texttt{.bib} files.
+\item \verb|xcolor|: provides tons of colour customisation and
+  declaration, as well as a wide variety of predefined
+  colours.  Contains many options which expand the default colour
+  palatte.
+\item \verb|hypperref|: provides hyperlinks for references, footnotes,
+  citations, and URLs.  Contains various options which allow the user
+  to customise their behaviour and appearance.
+\item \verb|geometry|: provides page layout specifications for
+  customisable margins and paper sizes.
 \end{itemize}
-This document contains more packages in \texttt{preamble.tex}, read the comments for more information. Further information on packages and \LaTeX~in general can be found on the web, particularly at the \LaTeX~wikibook\footnote{\url{https://en.wikibooks.org/wiki/LaTeX}}, \TeX~Stack Exchange\footnote{\url{http://tex.stackexchange.com/}}, and Sub-Reddit\footnote{\url{https://www.reddit.com/r/latex}}.
+This document contains more packages in \texttt{preamble.tex}, read
+the comments for more information.  Further information on packages
+and \LaTeX~in general can be found on the web, particularly at the
+\LaTeX~wikibook\footnote{\url{https://en.wikibooks.org/wiki/LaTeX}},
+\TeX~Stack Exchange\footnote{\url{http://tex.stackexchange.com/}}, and
+Sub-Reddit\footnote{\url{https://www.reddit.com/r/latex}}.
 %
 \section{Environments and Commands}\label{s:ec}
 %
-A big part of \LaTeX's appeal is the fact that it uses explicit environments and commands which are loaded by the document class and packages declared in the preamble. Environments are sections of code with special rules, and may contain arguments and/or options. In contrast, commands\footnote{In a way, packages are commands which load other commands.} have a certain function, but do not change the rules of a section of code. They may also contain options and/or arguments. It's worth mentioning that not all environments and commands need or even use options and/or arguments. Options are always found within chevrons \verb|[options]|, while arguments within braces \verb|{arguments}|, options \emph{always} go before arguments.
+A big part of \LaTeX's appeal is the fact that it uses explicit
+environments and commands which are loaded by the document class and
+packages declared in the preamble.  Environments are sections of code
+with special rules, and may contain arguments and/or options.  In
+contrast, commands\footnote{In a way, packages are commands which load
+  other commands.} have a certain function, but do not change the
+rules of a section of code.  They may also contain options and/or
+arguments.  It's worth mentioning that not all environments and
+commands need or even use options and/or arguments.  Options are
+always found within chevrons \verb|[options]|, while arguments within
+braces \verb|{arguments}|, options \emph{always} go before arguments.
 
 Environments are specified as:
 \begin{verbatim}
@@ -63,42 +123,63 @@ Environments are specified as:
 	    ...
 	\end{environment}
 \end{verbatim}
-while commands are simply written as \verb|\command|. Options and arguments---if needed---are added immediately after declaration. Commands also gobble one space immediately to their right, avoid this by adding a nonbreaking space, \verb|~|, between it and the following text, e.g. \verb|\command~text|. Punctuation can be placed immediately following a command without problem.
+while commands are simply written as \verb|\command|.  Options and
+arguments---if needed---are added immediately after declaration.
+Commands also gobble one space immediately to their right, avoid this
+by adding a nonbreaking space, \verb|~|, between it and the following
+text, e.g. \verb|\command~text|.  Punctuation can be placed
+immediately following a command without problem.
 
-Some commands and environments have \emph{starred} versions, where an asterisk, *, is placed immediately after their name \verb|\command*|, \verb|\begin{environment*}| and \verb|\end{environment*}|. Starred versions change to an alternate behaviour, usually something to do with numbering or indexing.
+Some commands and environments have \emph{starred} versions, where an
+asterisk, *, is placed immediately after their name \verb|\command*|,
+\verb|\begin{environment*}| and \verb|\end{environment*}|.  Starred
+versions change to an alternate behaviour, usually something to do
+with numbering or indexing.
 %
 \subsection{Font Commands}
 %
-There are a myriad of fonts and font types so only the most common ones will be included here.
+There are a myriad of fonts and font types so only the most common
+ones will be included here.
 
-The standard \LaTeX~font is the famed Computer Modern font family, which despite its superiority over plebian fonts, still has its minor flaws. Which the Latin Modern font family was designed to fix. Computer Modern is still the default font in most \LaTeX~distributions, so Latin Modern must be loaded with the \verb|lmodern| package at the very end of the package declaration because it redesigns many fonts and symbols loaded by other packages. 
+The standard \LaTeX~font is the famed Computer Modern font family,
+which despite its superiority over plebian fonts, still has its minor
+flaws.  Which the Latin Modern font family was designed to fix.
+Computer Modern is still the default font in most
+\LaTeX~distributions, so Latin Modern must be loaded with the
+\verb|lmodern| package at the very end of the package declaration
+because it redesigns many fonts and symbols loaded by other packages.
 
-There are also many font styles, the most common ones are found in table \ref{t:font}. Some of them can be nested to produce a combination of effects, but only if the combination exists within the document's font family.
+There are also many font styles, the most common ones are found in
+table \ref{t:font}.  Some of them can be nested to produce a
+combination of effects, but only if the combination exists within the
+document's font family.
 \begin{table}[!htbp]
-    \centering
-    \caption{Common font styles.}
-    \label{t:font}
-    \begin{tabular}{rl}
-        \toprule
-        Command & Result \\
-        \midrule
-        \verb|\emph{ABCdef123}| & \emph{ABCdef123}  \\
-        \verb|\textsf{ABCdef123}| & \textsf{ABCdef123} \\
-        \verb|\texttt{ABCdef123}| & \texttt{ABCdef123} \\
-        \verb|\textit{ABCdef123}| & \textit{ABCdef123} \\
-        \verb|\textsl{ABCdef123}| & \textsl{ABCdef123} \\
-        \verb|\textsc{ABCdef123}| & \textsc{ABCdef123}  \\
-        \verb|\uppercase{ABCdef123}| & \uppercase{ABCdef123} \\
-        \verb|\textbf{ABCdef123}| & \textbf{ABCdef123} \\
-        \bottomrule
-    \end{tabular}
+  \centering
+  \caption{Common font styles.}
+  \label{t:font}
+  \begin{tabular}{rl}
+    \toprule
+    Command & Result \\
+    \midrule
+    \verb|\emph{ABCdef123}| & \emph{ABCdef123}  \\
+    \verb|\textsf{ABCdef123}| & \textsf{ABCdef123} \\
+    \verb|\texttt{ABCdef123}| & \texttt{ABCdef123} \\
+    \verb|\textit{ABCdef123}| & \textit{ABCdef123} \\
+    \verb|\textsl{ABCdef123}| & \textsl{ABCdef123} \\
+    \verb|\textsc{ABCdef123}| & \textsc{ABCdef123}  \\
+    \verb|\uppercase{ABCdef123}| & \uppercase{ABCdef123} \\
+    \verb|\textbf{ABCdef123}| & \textbf{ABCdef123} \\
+    \bottomrule
+  \end{tabular}
 \end{table}
 
-There are predefined font sizes whose absolute size varies depending on document class and default font size. They are declared as:
+There are predefined font sizes whose absolute size varies depending
+on document class and default font size.  They are declared as:
 \begin{verbatim}
 {\fontsizecommand <text or environment>}
 \end{verbatim}
-Table \ref{t:fontsize} contains these commands and what each does in a report with 12pt font size.
+Table \ref{t:fontsize} contains these commands and what each does in a
+report with 12pt font size.
 \begin{table}[!htbp]
     \centering
     \caption{Pre-defined font sizes.}
@@ -125,97 +206,153 @@ Arbitrary font sizes can be selected by using:
 \begin{verbatim}
 	{\fontsize{<size>}{<line space>}\selectfont <text or environment>}
 \end{verbatim}
-where the size can be given as \verb|pt|, or any properly abbreviated imperial or metric measure.
+where the size can be given as \verb|pt|, or any properly abbreviated
+imperial or metric measure.
 %
 \subsection{Include and Input Commands}
 %
-\verb|\input{}| and \verb|\include{}| are two \emph{very} special and useful commands. They take a \texttt{.tex} file as argument without extension.\footnote{They also accept relative or absolute paths with the file.}
+\verb|\input{}| and \verb|\include{}| are two \emph{very} special and
+useful commands.  They take a \texttt{.tex} file as argument without
+extension.\footnote{They also accept relative or absolute paths with
+  the file.}
 
-\verb|\input{filename}| is very low level, and it simply inserts \texttt{filename.tex}'s content into the \texttt{.tex} file where it is called. It can be nested, i.e. input files can found be within other input and include files, and be used in the preamble---which is useful when documents share core packages and configurations. 
+\verb|\input{filename}| is very low level, and it simply inserts
+\texttt{filename.tex}'s content into the \texttt{.tex} file where it
+is called.  It can be nested, i.e. input files can found be within
+other input and include files, and be used in the preamble---which is
+useful when documents share core packages and configurations.
 
-\verb|\include{filename}| is a bit more complicated and \emph{much} more useful when it comes to sectioning. This command forces a \verb|\clearpage| before and after inserting \texttt{filename.tex}'s content, so it's usually reserved for inserting chapters, as they already start on a new page. It also does some very convenient \TeX-fu with \texttt{.aux} files, only compiling those whose corresponding \texttt{.tex} files have been modified, rather than the whole document's. This makes the first complete compilation noticeably slower than normal, but considerably hastens subsequent ones.
+\verb|\include{filename}| is a bit more complicated and \emph{much}
+more useful when it comes to sectioning.  This command forces a
+\verb|\clearpage| before and after inserting \texttt{filename.tex}'s
+content, so it's usually reserved for inserting chapters, as they
+already start on a new page.  It also does some very convenient
+\TeX-fu with \texttt{.aux} files, only compiling those whose
+corresponding \texttt{.tex} files have been modified, rather than the
+whole document's.  This makes the first complete compilation
+noticeably slower than normal, but considerably hastens subsequent
+ones.
 %
 \section{Spacing}
 %
 \begin{table}[!htbp]
-    \centering
-    \caption{Spacing commands.}
-    \label{t:space}
-    \begin{tabular}{rl}
-        \toprule
-        Command & Function \\
-        \midrule
-        \verb|\indent| & Forces indentation. \\
-        \verb|\noindent| & Removes automatic indentation. \\
-        \verb|\hspace{}| & Add horizontal space in the desired units. \\
-        \verb|\vspace{}| & Add vertical space in the desired units. \\
-        \verb|\hfill| & Fill the page horizontally with space. \\
-        \verb|\vfill| & Fill the page vertically with space. \\
-        \verb|~| & Non-breaking space. Treated as a letter rather than a space. \\
-        \verb|\,| & Thin space (maths and text). \\
-        \verb|\;| & Thick space (maths). \\
-        \verb|\:| & Medium space (maths). \\
-        \verb|\!| & Negative space (maths). \\
-        \verb|\quad| & Em dash of space. \\
-        \verb|\qquad| & Two Em dashes of space. \\
-        \verb|\\| & Line break. \\
-        \verb|\\[]| & Line break with spacing in the desired units. \\
-        \bottomrule
-    \end{tabular}
-    \vspace{0.1cm}
-    \caption*{Note: Spacing units can be metric or imperial and use the standard abbreviated form. They can be negative and subtract spacing, or positive and add spacing.}
+  \centering
+  \caption{Spacing commands.}
+  \label{t:space}
+  \begin{tabular}{rl}
+    \toprule
+    Command & Function \\
+    \midrule
+    \verb|\indent| & Forces indentation. \\
+    \verb|\noindent| & Removes automatic indentation. \\
+    \verb|\hspace{}| & Add horizontal space in the desired units. \\
+    \verb|\vspace{}| & Add vertical space in the desired units. \\
+    \verb|\hfill| & Fill the page horizontally with space. \\
+    \verb|\vfill| & Fill the page vertically with space. \\
+    \verb|~| & Non-breaking space. Treated as a letter rather than a space. \\
+    \verb|\,| & Thin space (maths and text). \\
+    \verb|\;| & Thick space (maths). \\
+    \verb|\:| & Medium space (maths). \\
+    \verb|\!| & Negative space (maths). \\
+    \verb|\quad| & Em dash of space. \\
+    \verb|\qquad| & Two Em dashes of space. \\
+    \verb|\\| & Line break. \\
+    \verb|\\[]| & Line break with spacing in the desired units. \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.1cm}
+  \caption*{Note: Spacing units can be metric or imperial and use the
+    standard abbreviated form.  They can be negative and subtract spacing,
+    or positive and add spacing.}
 \end{table}
-One of the paramount things about \LaTeX~is the emphasis on proper spacing. \LaTeX~does not take Tab indents or single line breaks into account because they help in making code readable and easier to debug, so there are specific spacing commands for that. Table \ref{t:space} shows the most commonly used spacing commands and their function.
+One of the paramount things about \LaTeX~is the emphasis on proper
+spacing.  \LaTeX~does not take Tab indents or single line breaks into
+account because they help in making code readable and easier to debug,
+so there are specific spacing commands for that.  Table \ref{t:space}
+shows the most commonly used spacing commands and their function.
 %
 \section{Counters}\label{s:counters}
 %
-Counters are variables whose values increase whenever an event is triggered. There are standard counters for all sectioning commands, equations (all maths environments except in-line and display maths automatically increase it), floats (figure, table), paragraph, subparagraph, footnote, mpfootnote, and page. They are named after the object they keep track on---for example the figure counter is called \verb|figure|, and the page counter, \verb|page|. There are also counters for the \verb|enumerate| and \verb|itemize| environments. They cover the four default nesting levels, from first to last they are: 
+Counters are variables whose values increase whenever an event is
+triggered.  There are standard counters for all sectioning commands,
+equations (all maths environments except in-line and display maths
+automatically increase it), floats (figure, table), paragraph,
+subparagraph, footnote, mpfootnote, and page.  They are named after
+the object they keep track on---for example the figure counter is
+called \verb|figure|, and the page counter, \verb|page|.  There are
+also counters for the \verb|enumerate| and \verb|itemize|
+environments.  They cover the four default nesting levels, from first
+to last they are:
 \begin{inparaenum}[\itshape 1\upshape)]
-    \item \verb|enumi|, 
-    \item \verb|enumii|, 
-    \item \verb|enumiii|, and 
-    \item \verb|enumiv|.
+\item \verb|enumi|,
+\item \verb|enumii|,
+\item \verb|enumiii|, and
+\item \verb|enumiv|.
 \end{inparaenum}
 
-Calling a counter is done with the command \verb|\the<counter_name>|, which prints the counter as it is defined, and can be used to create custom formats with \verb|\renewcommand{}{}| (more on renewing commands later). The command \verb|\value{<counter_name>}| will return the counter's numerical value, which can be used in calculations and setting other counters to some related value.
+Calling a counter is done with the command \verb|\the<counter_name>|,
+which prints the counter as it is defined, and can be used to create
+custom formats with \verb|\renewcommand{}{}| (more on renewing
+commands later).  The command \verb|\value{<counter_name>}| will
+return the counter's numerical value, which can be used in
+calculations and setting other counters to some related value.
 
-Default counters are pseudo-numerical---except for footnote symbol counters. Table \ref{t:countsymb} contains the default counter styles. Setting a counter's style is done by typing \verb|\<counter_style>{<counter_name>}|, and has to be done within \verb|\renewcommand{}{}| so the changes are global.
+Default counters are pseudo-numerical---except for footnote symbol
+counters.  Table \ref{t:countsymb} contains the default counter
+styles.  Setting a counter's style is done by typing
+\verb|\<counter_style>{<counter_name>}|, and has to be done within
+\verb|\renewcommand{}{}| so the changes are global.
 \begin{table}[!htbp]
-    \centering
-    \caption{Counter styles.}
-    \label{t:countsymb}
-    \begin{tabular}{rl}
-        \toprule
-        Command & Function \\
-        \midrule
-        \verb|\arabic{}| & Arabic numbering. \\
-        \verb|\alph{}| & Lower case alphabetic. \\
-        \verb|\Alph{}| & Upper case alphabetic. \\
-        \verb|\roman{}| & Lower case roman numerals. \\
-        \verb|\Roman{}| & Upper case roman numerals. \\
-        \verb|\fnsymbol| & Footnote symbol. \\
-        \bottomrule
-    \end{tabular}
+  \centering
+  \caption{Counter styles.}
+  \label{t:countsymb}
+  \begin{tabular}{rl}
+    \toprule
+    Command & Function \\
+    \midrule
+    \verb|\arabic{}| & Arabic numbering. \\
+    \verb|\alph{}| & Lower case alphabetic. \\
+    \verb|\Alph{}| & Upper case alphabetic. \\
+    \verb|\roman{}| & Lower case roman numerals. \\
+    \verb|\Roman{}| & Upper case roman numerals. \\
+    \verb|\fnsymbol| & Footnote symbol. \\
+    \bottomrule
+  \end{tabular}
 \end{table}
 
-As an example, say we want our pages to be numbered as follows \verb|<chapter_number>-<arabic_page_number>|, we would need to add
+As an example, say we want our pages to be numbered as follows
+\verb|<chapter_number>-<arabic_page_number>|, we would need to add
 \begin{verbatim}
 	\renewcommand{\thepage}{\thechapter-\arabic{page}}
 \end{verbatim}
 where we want this page numbering style to begin.
 
-Counters can also be manually modified. Stepping a counter by one is done with \verb|\stepcounter{<counter_name>}|. Adding or subtracting an arbitrary number to a counter is done with \verb|\addtocounter{<counter_name>}{<number>}|. Setting a counter to a given number is done with \verb|\setcounter{<counter_name>}{<number>}|. Setting a counter in relation to some other counter is done with
+Counters can also be manually modified.  Stepping a counter by one is
+done with \verb|\stepcounter{<counter_name>}|.  Adding or subtracting
+an arbitrary number to a counter is done with
+\verb|\addtocounter{<counter_name>}{<number>}|.  Setting a counter to
+a given number is done with
+\verb|\setcounter{<counter_name>}{<number>}|.  Setting a counter in
+relation to some other counter is done with
 \begin{verbatim}
 	\setcounter{<counter_name>}{\number\value{<other_counter_name>}}
 \end{verbatim}
-They can also be created with the \verb|\newcounter{<counter_name>}| command. And counters which are reset to zero every time another counter is increased are created with \verb|\newcounter{<counter_name>}[<trigger_counter>]|. New counters must be created in the preamble.
+They can also be created with the \verb|\newcounter{<counter_name>}|
+command.  And counters which are reset to zero every time another
+counter is increased are created with
+\verb|\newcounter{<counter_name>}[<trigger_counter>]|.  New counters
+must be created in the preamble.
 %
 \section{Table of Contents, Appendix, Index \& Glossary}\label{s:contents}
 %
-If they are used within the \verb|beamer| document class, remove all paging commands.
+If they are used within the \verb|beamer| document class, remove all
+paging commands.
 \subsection{Table of Contents}
 %
-Some of the most painful aspects of creating documents in word processors are this section's namesake. Fortunately, \LaTeX has us covered. In fact adding a complete tables of contents (toc) is as easy as adding the following code where the user wants them to appear.
+Some of the most painful aspects of creating documents in word
+processors are this section's namesake.  Fortunately, \LaTeX has us
+covered.  In fact adding a complete tables of contents (toc) is as
+easy as adding the following code where the user wants them to appear.
 \begin{verbatim}
 	\newpage
 	\tableofcontents    % Table of contents.
@@ -230,43 +367,73 @@ Some of the most painful aspects of creating documents in word processors are th
 	\addcontentsline{toc}{chapter}{List of Figures}
 	\listoffigures      % Figure index.
 \end{verbatim}
-The \verb|\tableofcontents| command prints the table of contents, \verb|\listoftables| prints a list of tables, \verb|listoffigures| prints one for figures, and \verb|\addcontentsline{toc}{<section_type>}{<name>}| adds an entry to the table of contents as if it were a section type (part, chapter, section, subsection or subsubsection), under the desired name. The \verb|\cleardoublepage| and \verb|\phantomsection| commands ensure the correct page numbers are referenced. In the given example, the main table of contents prints the location of the lists of tables and figures as if they were chapters named ``List of Tables'' and ``List of Figures''.
+The \verb|\tableofcontents| command prints the table of contents,
+\verb|\listoftables| prints a list of tables, \verb|listoffigures|
+prints one for figures, and
+\verb|\addcontentsline{toc}{<section_type>}{<name>}| adds an entry to
+the table of contents as if it were a section type (part, chapter,
+section, subsection or subsubsection), under the desired name.  The
+\verb|\cleardoublepage| and \verb|\phantomsection| commands ensure the
+correct page numbers are referenced.  In the given example, the main
+table of contents prints the location of the lists of tables and
+figures as if they were chapters named ``List of Tables'' and ``List
+of Figures''.
 
-Anything can be added to the table of contents with the \verb|\addcontentsline{}{}{}| command, including appendices, indices, and unnumbered (starred) sectioning commands. Glossaries can be added with the \verb|glossaries| package.
+Anything can be added to the table of contents with the
+\verb|\addcontentsline{}{}{}| command, including appendices, indices,
+and unnumbered (starred) sectioning commands.  Glossaries can be added
+with the \verb|glossaries| package.
 %
 \subsection{Appendix}
 %
-Adding an appendix is as easy as writing \verb|\appendix| where the appendix is to be printed. It only needs to be added once, all subsequent sectioning commands will be formatted accordingly.
+Adding an appendix is as easy as writing \verb|\appendix| where the
+appendix is to be printed.  It only needs to be added once, all
+subsequent sectioning commands will be formatted accordingly.
 %
 \subsection{Index}
 %
-Creating an index requires the \verb|makeidx| package, adding the \verb|\makeindex| command in the preamble, and placing \verb|\printindex| where the index is to be printed. Index entries are specified with the \verb|\index{}| command. Table \ref{t:index} shows how advanced index entries are specified.
+Creating an index requires the \verb|makeidx| package, adding the
+\verb|\makeindex| command in the preamble, and placing
+\verb|\printindex| where the index is to be printed.  Index entries
+are specified with the \verb|\index{}| command.  Table \ref{t:index}
+shows how advanced index entries are specified.
 \begin{table}[!htbp]
-    \centering
-    \caption{Sophisticate indexing.}
-    \label{t:index}
-    \begin{tabular}{rl}
-        \toprule
-        Command & Function \\
-        \midrule
-        \verb|index{a}| & Plain entry. \\
-        \verb|index{a!b}| & Sub entry under a. \\
-        \verb|index{a}| & Plain entry. \\
-        \verb|index{b@\<text_style>{b}}| & Formatted entry. \\
-        \verb|index{a!b@\<text_style>{b}}| & Formatted sub entry under a. \\
-        \verb+index{a|<text_style>}+ & Formatted page number. \\
-        \verb+index{a|see {b}}+ & Cross-reference with \emph{see}. \\
-        \verb+\index{a|seealso{b}}+ & Cross-reference with \emph{see also}.\\
-        \bottomrule
-    \end{tabular}
+  \centering
+  \caption{Sophisticate indexing.}
+  \label{t:index}
+  \begin{tabular}{rl}
+    \toprule
+    Command & Function \\
+    \midrule
+    \verb|index{a}| & Plain entry. \\
+    \verb|index{a!b}| & Sub entry under a. \\
+    \verb|index{a}| & Plain entry. \\
+    \verb|index{b@\<text_style>{b}}| & Formatted entry. \\
+    \verb|index{a!b@\<text_style>{b}}| & Formatted sub entry under a. \\
+    \verb+index{a|<text_style>}+ & Formatted page number. \\
+    \verb+index{a|see {b}}+ & Cross-reference with \emph{see}. \\
+    \verb+\index{a|seealso{b}}+ & Cross-reference with \emph{see also}.\\
+    \bottomrule
+  \end{tabular}
 \end{table}
-Accents cannot be added as unicode characters, and must instead be added as \verb|\<accent>| followed by the word to be indexed. Advanced index entries can be nested as needed. 
+Accents cannot be added as unicode characters, and must instead be
+added as \verb|\<accent>| followed by the word to be indexed.
+Advanced index entries can be nested as needed.
 
-There is a way to create more than one index, but for most purposes, a single one will suffice. Regardless, the indexing page of the \LaTeX~wikibook\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Indexing}} contains more information on the matter.
+There is a way to create more than one index, but for most purposes, a
+single one will suffice.  Regardless, the indexing page of the
+\LaTeX~wikibook\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Indexing}}
+contains more information on the matter.
 %
 \subsection{Glossary}
 %
-The glossary requires the \verb|glossaries| package, and adding the \verb|\makeglossaries| in the preamble. Added functionality can be added by specifying the package options: \verb|xindy|, which offers better indexing than \verb|makeindex| (default); and \verb|toc|, which adds the glossary to the table of contents. In order to make glossary entries hyperlinks, the package must be loaded \emph{after} \verb|hyperref|.
+The glossary requires the \verb|glossaries| package, and adding the
+\verb|\makeglossaries| in the preamble.  Added functionality can be
+added by specifying the package options: \verb|xindy|, which offers
+better indexing than \verb|makeindex| (default); and \verb|toc|, which
+adds the glossary to the table of contents.  In order to make glossary
+entries hyperlinks, the package must be loaded \emph{after}
+\verb|hyperref|.
 
 Defining a glossary term is done as follows:
 \begin{verbatim}
@@ -279,31 +446,74 @@ Defining a glossary term is done as follows:
 	        plural = <plural>
 	    }
 \end{verbatim}
-Where all entries but \verb|name| are optional. If \verb|name| and/or \verb|symbol| require mathematical environments, they should be placed within \verb|\ensuremath{}|. The description can have in-line maths. The \verb|\longnewglossaryentry{}{}{<long_description>}| command should be used in cases where the description is over one paragraph long. It takes the same first and second arguments but the description is placed as the third, not as part of the second. Acronym definition is done with the \verb|\newacronym{<label>}{<abbreviation>}{<full_word>}| command. If acronyms require a different list, add the \verb|acronym| option to the \verb|glossaries| package.
+Where all entries but \verb|name| are optional.  If \verb|name| and/or
+\verb|symbol| require mathematical environments, they should be placed
+within \verb|\ensuremath{}|.  The description can have in-line maths.
+The \verb|\longnewglossaryentry{}{}{<long_description>}| command
+should be used in cases where the description is over one paragraph
+long. It takes the same first and second arguments but the description
+is placed as the third, not as part of the second.  Acronym definition
+is done with the
+\verb|\newacronym{<label>}{<abbreviation>}{<full_word>}| command.  If
+acronyms require a different list, add the \verb|acronym| option to
+the \verb|glossaries| package.
 
-Referencing glossary entries is done with \verb|\gls{<label>}|, by adding symbol, desc and pl between \verb|gls| and the argument, it will reference the symbol, description and plural respectively. By capitalising \verb|G| in the normal and plural versions, the printed name will have its first letter capitalised. An entry can also be referenced with alternate text by using the command \verb|\glslink{<label>}{<alternate_text>}|.
+Referencing glossary entries is done with \verb|\gls{<label>}|, by
+adding symbol, desc and pl between \verb|gls| and the argument, it
+will reference the symbol, description and plural respectively.  By
+capitalising \verb|G| in the normal and plural versions, the printed
+name will have its first letter capitalised.  An entry can also be
+referenced with alternate text by using the command
+\verb|\glslink{<label>}{<alternate_text>}|.
 
-There is much more information in the documentation for the \verb|glossaries| package and the \LaTeX~wikibook's glossary entry\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Glossary}}.
+There is much more information in the documentation for the
+\verb|glossaries| package and the \LaTeX~wikibook's glossary
+entry\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Glossary}}.
 %
 \subsection{User-Defined Commands}
 %
-\LaTeX, is in fact \emph{Turing complete}, meaning it has the full capability of a programming language. Therefore, one can define and use programming language staples such as loops, ifthen statements, calculations, variables, etc. \LaTeX's collective name for these is \emph{macro}. In reality, only someone who truly hates himself/herself would actually seriously use \LaTeX~as a programming language. Most people just stop at defining new variables or redefining old ones. These variables are known to \LaTeX~as commands and environments. Redefining environments is reserved for package makers and \emph{very} advanced users, so they are well outside this guide's scope.
+\LaTeX, is in fact \emph{Turing complete}, meaning it has the full
+capability of a programming language.  Therefore, one can define and
+use programming language staples such as loops, ifthen statements,
+calculations, variables, etc. \LaTeX's collective name for these is
+\emph{macro}.  In reality, only someone who truly hates
+himself/herself would actually seriously use \LaTeX~as a programming
+language.  Most people just stop at defining new variables or
+redefining old ones.  These variables are known to \LaTeX~as commands
+and environments.  Redefining environments is reserved for package
+makers and \emph{very} advanced users, so they are well outside this
+guide's scope.
 
-All macros must be defined in the preamble. Commands can be defined as having standalone content; combinations of other standalone commands; as having arguments; and any imaginable combination. They are defined as follows:
+All macros must be defined in the preamble.  Commands can be defined
+as having standalone content; combinations of other standalone
+commands; as having arguments; and any imaginable combination. They
+are defined as follows:
 \begin{verbatim}
 	\newcommand{\cmd1}{content}
 	\newcommand{\cmd2}[n]{content_1#1 content_2#2... content_n#n}
 	\newcommand{\cmd3}{\command_1 \command_2... \command_3}
 	\newcommand{\cmd4}[n]{\command_1{#1} \command_2{#2}... \command_1{#n}}
 \end{verbatim}
-When using a command, its arguments will be specified within braces, \{\}, of which there will be as many as there are arguments in the command's definition. Arguments are denoted as, \verb|#<n>|, and refer to the command's $n^{\text{th}}$ argument left to right. For instance:
+When using a command, its arguments will be specified within braces,
+\{\}, of which there will be as many as there are arguments in the
+command's definition. Arguments are denoted as, \verb|#<n>|, and refer
+to the command's $n^{\text{th}}$ argument left to right.  For
+instance:
 \begin{verbatim}
 	\newcommand{\helwo12}[2]{#1 #2}
 	\newcommand{\helwo21}[2]{#2 #1}
 \end{verbatim}
-respectively produce the commands \verb|\helwo12{}{}| and \verb|\helwo21{}{}|. If one were to write \verb|\helwo12{Hello!}{World!}|, the output would be ``Hello! World!'', but if one were to write \verb|\helwo21{Hello!}{World!}| the output would be ``World! Hello!''.
+respectively produce the commands \verb|\helwo12{}{}| and
+\verb|\helwo21{}{}|.  If one were to write
+\verb|\helwo12{Hello!}{World!}|, the output would be ``Hello!
+World!'', but if one were to write \verb|\helwo21{Hello!}{World!}| the
+output would be ``World! Hello!''.
 
-Redefining existing commands is somewhat more complex, because it requires the user to know the command's internal parameters. Fortunately, these are found in each command's \LaTeX~wikibook page. As a general example, redefining existing commands is done in the following manner:
+Redefining existing commands is somewhat more complex, because it
+requires the user to know the command's internal parameters.
+Fortunately, these are found in each command's \LaTeX~wikibook page.
+As a general example, redefining existing commands is done in the
+following manner:
 \begin{verbatim}
 	\renewcommand{\existingcommand}
 	    {
@@ -313,43 +523,84 @@ Redefining existing commands is somewhat more complex, because it requires the u
 	        \component_n value_n
 	    }
 \end{verbatim}
-Commands do not need to be strictly renewed in the preamble, but it's generally advisable to do so. There are times when renewing commands in-document may be necessary---such as special page numbering.
+Commands do not need to be strictly renewed in the preamble, but it's
+generally advisable to do so.  There are times when renewing commands
+in-document may be necessary---such as special page numbering.
 
-For more information on \LaTeX~macros visit the wiki book's macro page\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Macros}}.
+For more information on \LaTeX~macros visit the wiki book's macro
+page\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Macros}}.
 %
 \section{Referencing}
 %
-Referencing in \LaTeX~is extremely easy to do, all it requires is a label---\verb|\label{}|---and reference---\verb|ref{}| for non-equations, and \verb|\eqref{}| for equations---commands. Referencing floats also requires the label to come after a non-starred caption. 
+Referencing in \LaTeX~is extremely easy to do, all it requires is a
+label---\verb|\label{}|---and reference---\verb|ref{}| for
+non-equations, and \verb|\eqref{}| for
+equations---commands.  Referencing floats also requires the label to
+come after a non-starred caption.
 
-As long as an item can be \emph{uniquely} identified, it can be labeled and referenced. Labels are placed immediately following sectioning, ToC, appendix, and indexing commands; before line breaks in equations; and after the caption in floats. The \verb|hyperref| package loads further referencing capability, such as hyperlinks and colour-coded links depending on hyperlink type.
+As long as an item can be \emph{uniquely} identified, it can be
+labeled and referenced.  Labels are placed immediately following
+sectioning, ToC, appendix, and indexing commands; before line breaks
+in equations; and after the caption in floats.  The \verb|hyperref|
+package loads further referencing capability, such as hyperlinks and
+colour-coded links depending on hyperlink type.
 
-The package \verb|cleveref| does not work on Overleaf, but adds incredibly useful functionality such as smart references, reference formats, reference ranges, compressed references, capitalisation, etc. It doesn't work when \verb|amsmath| and \verb|hyperref| are simultaneously loaded. Fortunately \verb|mathtools| is vastly superior to \verb|amsmath| in every respect, and does \emph{not} present this bug; so use it in place of \verb|amsmath| and enjoy the wonders of \verb|cleveref|.
+The package \verb|cleveref| does not work on Overleaf, but adds
+incredibly useful functionality such as smart references, reference
+formats, reference ranges, compressed references, capitalisation, etc.
+It doesn't work when \verb|amsmath| and \verb|hyperref| are
+simultaneously loaded.  Fortunately \verb|mathtools| is vastly
+superior to \verb|amsmath| in every respect, and does \emph{not}
+present this bug; so use it in place of \verb|amsmath| and enjoy the
+wonders of \verb|cleveref|.
 %
 \section{Non-English Documents}
 %
-\LaTeX~ is also capable of creating non-English documents. In fact, language packs are freely available in community packages and extensions. The \verb|babel| and \verb|polyglossia|\footnote{Preferred for \XeLaTeX.} packages provide non-english language capability. They change sectioning and float languages, hyphenation patterns, quotations, and preference for decimal dot vs. comma. There are also regional options for many languages: such as iberic and mexican spanish; iberic or brazilian portugues, etc. Unfortunately \verb|polyglossia| still lacks some regional adjustments, including latin-american and mexican spanish, which means many users should stick to \verb|babel| for the time being. Babel languages are declared as follows:
+\LaTeX~ is also capable of creating non-English documents.  In fact,
+language packs are freely available in community packages and
+extensions.  The \verb|babel| and
+\verb|polyglossia|\footnote{Preferred for \XeLaTeX.} packages provide
+non-english language capability.  They change sectioning and float
+languages, hyphenation patterns, quotations, and preference for
+decimal dot vs. comma.  There are also regional options for many
+languages: such as iberic and mexican spanish; iberic or brazilian
+portugues, etc.  Unfortunately \verb|polyglossia| still lacks some
+regional adjustments, including latin-american and mexican spanish,
+which means many users should stick to \verb|babel| for the time
+being.  Babel languages are declared as follows:
 \begin{verbatim}
 	\usepackage[language1,language2...,languagen]{babel}
 \end{verbatim}
-Where the last language will be the default one. Regional adjustment are placed immediately after the main language, for instance:
+Where the last language will be the default one.  Regional adjustment
+are placed immediately after the main language, for instance:
 \begin{verbatim}
 	\usepackage[spanish,mexico]{babel}
 \end{verbatim}
 
-It is also possible to create multilingual documents, so linguists and language academics are well catered for. More information on this can be found in \verb|babel|'s user manual.
+It is also possible to create multilingual documents, so linguists and
+language academics are well catered for.  More information on this can
+be found in \verb|babel|'s user manual.
 %
 \section{Bibliography}
 %
-One of the appeals of \LaTeX~is bibliography management. There are two ways of doing so:
+One of the appeals of \LaTeX~is bibliography management.  There are
+two ways of doing so:
 \begin{itemize}
-    \item Manually: better known as the hard way.
-    \item \BibTeX: better known as the only way. Google scholar also provides \texttt{.bib} files by clicking Cite under an article and selecting \BibTeX~at the bottom left of the popup window.
+\item Manually: better known as the hard way.
+\item \BibTeX: better known as the only way.  Google scholar also
+  provides \texttt{.bib} files by clicking Cite under an article and
+  selecting \BibTeX~at the bottom left of the popup window.
 \end{itemize}
-They can be referenced using the \verb|\cite[]{}|, where the optional chevrons can be omitted, and the bibliographic label is placed inside the braces.
+They can be referenced using the \verb|\cite[]{}|, where the optional
+chevrons can be omitted, and the bibliographic label is placed inside
+the braces.
 %
 \subsection{Manual}
 %
-Doing things manually means the user has to hard-code the style into the bibliography. The user adds the \verb|thebibliography| environment, which takes a numeric argument for the maximum number of bibliographic items:
+Doing things manually means the user has to hard-code the style into
+the bibliography.  The user adds the \verb|thebibliography|
+environment, which takes a numeric argument for the maximum number of
+bibliographic items:
 \begin{verbatim}
 	\begin{thebibliography}{99}
 	    \bibitem{<biblabel1_>} ...
@@ -361,21 +612,43 @@ Doing things manually means the user has to hard-code the style into the bibliog
 %
 \subsection{\BibTeX}\label{sb:bib}
 %
-The preferred way of handling bibliographies is by using the \verb|natbib| package together with \BibTeX. \verb|natbib| offers further citing options and commands which are too numerous and readily available\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/More_Bibliographies}} to be placed here. Though I'd like to mention \verb|\nocite{}|, because it adds the specified entry to the bibliography, but doesn't print the reference in-text. If the argument is an asterisk, *, all entries in the \verb|.bib| file are added to the bibliography regardless of whether they were cited or not.
+The preferred way of handling bibliographies is by using the
+\verb|natbib| package together with \BibTeX.  \verb|natbib| offers
+further citing options and commands which are too numerous and readily
+available\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/More_Bibliographies}}
+to be placed here.  Though I'd like to mention \verb|\nocite{}|,
+because it adds the specified entry to the bibliography, but doesn't
+print the reference in-text.  If the argument is an asterisk, *, all
+entries in the \verb|.bib| file are added to the bibliography
+regardless of whether they were cited or not.
 
-Using \BibTeX~requires a separate \verb|.bib| file, where entries are defined according to specific formats depending on the type of document or file to be cited, the first string of which is the bibliographic label. The following commands are then placed after all the document's content and before \verb|\end{document}|:
+Using \BibTeX~requires a separate \verb|.bib| file, where entries are
+defined according to specific formats depending on the type of
+document or file to be cited, the first string of which is the
+bibliographic label.  The following commands are then placed after all
+the document's content and before \verb|\end{document}|:
 \begin{verbatim}
 	\bibliographystyle{<style>}
 	\bibliography{<filename>}
 \end{verbatim}
-where the \verb|<style>| is replaced by a bibliographic style, and \verb|<filename>| is the \verb|.bib| file's name without extension (also accepts relative and absolute paths). There are many bibliographic styles found in \verb|natbib|'s manual or its wikibook entry\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management\#Natbib}}. They are not added here because their nuances are too subtle and involved for the purposes of this document. Other packages---especially journal-specific packages---add specialist styles.
+where the \verb|<style>| is replaced by a bibliographic style, and
+\verb|<filename>| is the \verb|.bib| file's name without extension
+(also accepts relative and absolute paths).  There are many
+bibliographic styles found in \verb|natbib|'s manual or its wikibook
+entry\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management\#Natbib}}. They
+are not added here because their nuances are too subtle and involved
+for the purposes of this document.  Other packages---especially
+journal-specific packages---add specialist styles.
 
-In order to fully compile a file with a \BibTeX~bibliography, the following compilation train must be followed:
+In order to fully compile a file with a \BibTeX~bibliography, the
+following compilation train must be followed:
 \begin{enumerate}
-    \item \XeLaTeX (or engine of your choice).
-    \item \BibTeX.
-    \item \XeLaTeX (or engine of your choice).
-    \item \XeLaTeX (or engine of your choice).
+\item \XeLaTeX (or engine of your choice).
+\item \BibTeX.
+\item \XeLaTeX (or engine of your choice).
+\item \XeLaTeX (or engine of your choice).
 \end{enumerate}
-This will ensure all references are parsed and the bibliography will be updated to show all the right entries with the correct style. Some editors can automate this process in a single shortcut.
+This will ensure all references are parsed and the bibliography will
+be updated to show all the right entries with the correct style.  Some
+editors can automate this process in a single shortcut.
 %
