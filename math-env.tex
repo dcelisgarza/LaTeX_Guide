@@ -4,8 +4,8 @@ The primary reason why Don Knuth started developing \TeX~was to create
 an easy and powerful tool for typesetting academic mathematical
 documents.  There are absurdly many mathematical tools and symbols in
 \LaTeX, but this document will only touch the most common ones
-non-mathematicians use.  The packages \verb|mathtools|, \verb|bm|,
-\verb|amssymb|, and \verb|pxfonts| respectively provide mathematical
+non-mathematicians use.  The packages \pkg{mathtools}, \pkg{bm},
+\pkg{amssymb}, and \pkg{pxfonts} respectively provide mathematical
 packages and symbols, corrected bold maths fonts, other mathematical
 symbols, and more fonts and symbols.  Mathematical symbols, functions
 and typefaces cannot exist outside a mathematical environment, though
@@ -153,7 +153,7 @@ how they are written in rigorous pen \& paper maths.
 Some symbols can change size depending on where they are in-document.
 Sometimes however, they're not big enough for their argument.  This is
 solved by the nest-able \verb|\mathlarger{}| command, provided by the
-\verb|relsize| package.  The number of integrals is defined by the
+\pkg{relsize} package.  The number of integrals is defined by the
 number of $i$'s in the command---up to 4 for normal integrals, 3 for
 cyclic ones\footnote{Triple cyclic integrals need the \texttt{pxfonts}
   or \texttt{txfonts} package}.  Linear integrals can also have dots.
@@ -183,7 +183,7 @@ cyclic ones\footnote{Triple cyclic integrals need the \texttt{pxfonts}
 %
 There are many mathematical accents, however we will only mention the
 most common ones used in science.  The majority of the most common
-ones are provided by the \AmSTeX~packages.  The \verb|mathdots|
+ones are provided by the \AmSTeX~packages.  The \pkg{mathdots}
 package redefines the spacing between dots for three and four dots.
 The number of dots is defined y the number of $d$'s in the
 \verb|\dots| command.  There also exist dotless versions of $\imath$
@@ -283,7 +283,7 @@ following equations are good examples of this.
 %
 Oftentimes, different mathematical objects have specific notations.
 For most applications no packages are needed, but loading both
-\verb|bm| and \verb|mathtools| packages cover most other cases.  Table
+\pkg{bm} and \pkg{mathtools} packages cover most other cases.  Table
 \ref{t:mt} provides some examples.
 \begin{table}[!htbp]
     \centering
@@ -363,7 +363,7 @@ yields:
 %
 Matrices can be represented in many ways depending on the context, or
 to denote certain matrix operations.  Pre-defined matrices require the
-\verb|mathtools| package.  The default types are shown in table
+\pkg{mathtools} package.  The default types are shown in table
 \ref{t:mat}, which is edited from the mathematics entry in the
 \LaTeX~wikibook\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Mathematics}}.
 Non-starred versions center the columns by default, starred variants

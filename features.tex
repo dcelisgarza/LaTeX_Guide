@@ -36,7 +36,7 @@ There are many document classes but the most common ones are:
 These provide the overall document format.  In some cases, they also
 automatically load certain packages and provide custom commands and/or
 environments.  The most obvious example of this is the \verb|beamer|
-class, which automatically loads the \verb|hyperref| package and
+class, which automatically loads the \pkg{hyperref} package and
 provides custom commands and environments such as \verb|\frametitle{}|
 and \verb|frame|, respectively.
 
@@ -46,8 +46,8 @@ default values appear in \textbf{bold}:
 \item Equation numbering (left or right): \verb|leqno|,
   \textbf{\texttt{reqno}}.
 \item Document language: \verb|german|, \verb|greek|, \verb|spanish|,
-  \textbf{\texttt{english}}.  Can be overridden with the \verb|babel|
-  and \verb|polyglossia| packages.
+  \textbf{\texttt{english}}.  Can be overridden with the \pkg{babel}
+  and \pkg{polyglossia} packages.
 \item Page orientation: \verb|landscape|, \textbf{\texttt{portrait}}.
 \item Text columns: \verb|twocolumn|, \textbf{\texttt{onecolumn}}.
 \item Font size: Any font size, \textbf{\texttt{12pt}}.
@@ -75,25 +75,25 @@ its documentation and/or wikibook entry.
 
 Some of the most used packages include:
 \begin{itemize}
-\item \verb|babel|: sets punctuation (hyphenation), part, chapter,
+\item \pkg{babel}: sets punctuation (hyphenation), part, chapter,
   section, subsection, subsubsection, figure, subfigure, table,
-  etc. to the language of your choice.  \verb|polyglossia| is the
-  \XeLaTeX~alternative, but \verb|babel| still has more regional
+  etc. to the language of your choice.  \pkg{polyglossia} is the
+  \XeLaTeX~alternative, but \pkg{babel} still has more regional
   options such as \verb|[spanish,mexico]|.
-\item \verb|fontspec|: loads utf-8 encoded fonts, natively supports
+\item \pkg{fontspec}: loads utf-8 encoded fonts, natively supports
   accents---even in \texttt{.bib} files---and works on \XeLaTeX~and
-  \LuaTeX.  It replaces PDF\LaTeX's \verb|inputenc| and \verb|latin|
+  \LuaTeX.  It replaces PDF\LaTeX's \pkg{inputenc} and \pkg{latin}
   packages; both of which require options in order to use unicode
   characters, and have trouble with accented unicode characters in
   \texttt{.bib} files.
-\item \verb|xcolor|: provides tons of colour customisation and
+\item \pkg{xcolor}: provides tons of colour customisation and
   declaration, as well as a wide variety of predefined
   colours.  Contains many options which expand the default colour
   palatte.
-\item \verb|hypperref|: provides hyperlinks for references, footnotes,
+\item \pkg{hypperref}: provides hyperlinks for references, footnotes,
   citations, and URLs.  Contains various options which allow the user
   to customise their behaviour and appearance.
-\item \verb|geometry|: provides page layout specifications for
+\item \pkg{geometry}: provides page layout specifications for
   customisable margins and paper sizes.
 \end{itemize}
 This document contains more packages in \texttt{preamble.tex}, read
@@ -146,7 +146,7 @@ which despite its superiority over plebian fonts, still has its minor
 flaws.  Which the Latin Modern font family was designed to fix.
 Computer Modern is still the default font in most
 \LaTeX~distributions, so Latin Modern must be loaded with the
-\verb|lmodern| package at the very end of the package declaration
+\pkg{lmodern} package at the very end of the package declaration
 because it redesigns many fonts and symbols loaded by other packages.
 
 There are also many font styles, the most common ones are found in
@@ -382,7 +382,7 @@ of Figures''.
 Anything can be added to the table of contents with the
 \verb|\addcontentsline{}{}{}| command, including appendices, indices,
 and unnumbered (starred) sectioning commands.  Glossaries can be added
-with the \verb|glossaries| package.
+with the \pkg{glossaries} package.
 %
 \subsection{Appendix}
 %
@@ -392,7 +392,7 @@ subsequent sectioning commands will be formatted accordingly.
 %
 \subsection{Index}
 %
-Creating an index requires the \verb|makeidx| package, adding the
+Creating an index requires the \pkg{makeidx} package, adding the
 \verb|\makeindex| command in the preamble, and placing
 \verb|\printindex| where the index is to be printed.  Index entries
 are specified with the \verb|\index{}| command.  Table \ref{t:index}
@@ -427,13 +427,13 @@ contains more information on the matter.
 %
 \subsection{Glossary}
 %
-The glossary requires the \verb|glossaries| package, and adding the
+The glossary requires the \pkg{glossaries} package, and adding the
 \verb|\makeglossaries| in the preamble.  Added functionality can be
-added by specifying the package options: \verb|xindy|, which offers
-better indexing than \verb|makeindex| (default); and \verb|toc|, which
+added by specifying the package options: \pkg{xindy}, which offers
+better indexing than \pkg{makeindex} (default); and \pkg{toc}, which
 adds the glossary to the table of contents.  In order to make glossary
 entries hyperlinks, the package must be loaded \emph{after}
-\verb|hyperref|.
+\pkg{hyperref}.
 
 Defining a glossary term is done as follows:
 \begin{verbatim}
@@ -456,7 +456,7 @@ is placed as the third, not as part of the second.  Acronym definition
 is done with the
 \verb|\newacronym{<label>}{<abbreviation>}{<full_word>}| command.  If
 acronyms require a different list, add the \verb|acronym| option to
-the \verb|glossaries| package.
+the \pkg{glossaries} package.
 
 Referencing glossary entries is done with \verb|\gls{<label>}|, by
 adding symbol, desc and pl between \verb|gls| and the argument, it
@@ -467,7 +467,7 @@ referenced with alternate text by using the command
 \verb|\glslink{<label>}{<alternate_text>}|.
 
 There is much more information in the documentation for the
-\verb|glossaries| package and the \LaTeX~wikibook's glossary
+\pkg{glossaries} package and the \LaTeX~wikibook's glossary
 entry\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Glossary}}.
 %
 \subsection{User-Defined Commands}
@@ -541,32 +541,32 @@ come after a non-starred caption.
 As long as an item can be \emph{uniquely} identified, it can be
 labeled and referenced.  Labels are placed immediately following
 sectioning, ToC, appendix, and indexing commands; before line breaks
-in equations; and after the caption in floats.  The \verb|hyperref|
+in equations; and after the caption in floats.  The \pkg{hyperref}
 package loads further referencing capability, such as hyperlinks and
 colour-coded links depending on hyperlink type.
 
-The package \verb|cleveref| does not work on Overleaf, but adds
+The package \pkg{cleveref} does not work on Overleaf, but adds
 incredibly useful functionality such as smart references, reference
 formats, reference ranges, compressed references, capitalisation, etc.
-It doesn't work when \verb|amsmath| and \verb|hyperref| are
-simultaneously loaded.  Fortunately \verb|mathtools| is vastly
-superior to \verb|amsmath| in every respect, and does \emph{not}
-present this bug; so use it in place of \verb|amsmath| and enjoy the
-wonders of \verb|cleveref|.
+It doesn't work when \pkg{amsmath} and \pkg{hyperref} are
+simultaneously loaded.  Fortunately \pkg{mathtools} is vastly
+superior to \pkg{amsmath} in every respect, and does \emph{not}
+present this bug; so use it in place of \pkg{amsmath} and enjoy the
+wonders of \pkg{cleveref}.
 %
 \section{Non-English Documents}
 %
 \LaTeX~ is also capable of creating non-English documents.  In fact,
 language packs are freely available in community packages and
-extensions.  The \verb|babel| and
-\verb|polyglossia|\footnote{Preferred for \XeLaTeX.} packages provide
+extensions.  The \pkg{babel} and
+\pkg{polyglossia}\footnote{Preferred for \XeLaTeX.} packages provide
 non-english language capability.  They change sectioning and float
 languages, hyphenation patterns, quotations, and preference for
 decimal dot vs. comma.  There are also regional options for many
 languages: such as iberic and mexican spanish; iberic or brazilian
-portugues, etc.  Unfortunately \verb|polyglossia| still lacks some
+portugues, etc.  Unfortunately \pkg{polyglossia} still lacks some
 regional adjustments, including latin-american and mexican spanish,
-which means many users should stick to \verb|babel| for the time
+which means many users should stick to \pkg{babel} for the time
 being.  Babel languages are declared as follows:
 \begin{verbatim}
 	\usepackage[language1,language2...,languagen]{babel}
@@ -579,7 +579,7 @@ are placed immediately after the main language, for instance:
 
 It is also possible to create multilingual documents, so linguists and
 language academics are well catered for.  More information on this can
-be found in \verb|babel|'s user manual.
+be found in \pkg{babel}'s user manual.
 %
 \section{Bibliography}
 %
@@ -613,7 +613,7 @@ bibliographic items:
 \subsection{\BibTeX}\label{sb:bib}
 %
 The preferred way of handling bibliographies is by using the
-\verb|natbib| package together with \BibTeX.  \verb|natbib| offers
+\pkg{natbib} package together with \BibTeX.  \pkg{natbib} offers
 further citing options and commands which are too numerous and readily
 available\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/More_Bibliographies}}
 to be placed here.  Though I'd like to mention \verb|\nocite{}|,
@@ -634,7 +634,7 @@ the document's content and before \verb|\end{document}|:
 where the \verb|<style>| is replaced by a bibliographic style, and
 \verb|<filename>| is the \verb|.bib| file's name without extension
 (also accepts relative and absolute paths).  There are many
-bibliographic styles found in \verb|natbib|'s manual or its wikibook
+bibliographic styles found in \pkg{natbib}'s manual or its wikibook
 entry\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management\#Natbib}}. They
 are not added here because their nuances are too subtle and involved
 for the purposes of this document.  Other packages---especially

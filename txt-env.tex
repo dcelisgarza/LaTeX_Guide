@@ -17,7 +17,7 @@ options,
 %
 The \verb|itemize| environment lists items as bullet-point lists.
 Bullet points can be redefined with \verb|\renewcommand{}{}| or with
-functionality offered by the \verb|enumitem| package.  The environment
+functionality offered by the \pkg{enumitem} package.  The environment
 is used as follows:
 \begin{verbatim}
 	\begin{itemize}
@@ -53,7 +53,7 @@ indentation (see section \ref{s:contents}).
 %
 The \verb|enumerate| environment places items as numbered lists.  The
 numbering can be redefined with \verb|\renewcommand{}{}| or with
-functionality offered by the \verb|enumitem| package.  It's declared
+functionality offered by the \pkg{enumitem} package.  It's declared
 as follows:
 \begin{verbatim}
 	\begin{enumerate}
@@ -95,21 +95,21 @@ indentation (see section \ref{s:contents}).
 %
 \subsection{In-line Lists}
 %
-There are a couple of ways to do this, with either the \verb|paralist|
-or \verb|enumitem| package.  For \verb|paralist|, the counter tokens
+There are a couple of ways to do this, with either the \pkg{paralist}
+or \pkg{enumitem} package.  For \pkg{paralist}, the counter tokens
 are A, a, I, i and 1; and respectively represent the \verb|\Alph|,
 \verb|\alph|, \verb|\Roman|, \verb|\roman|, and \verb|\arabic| counter
-styles.  Conversely, \verb|enumitem| uses them explicitly.  Both
+styles.  Conversely, \pkg{enumitem} uses them explicitly.  Both
 environments can take optional font shape switches and commands, as
 well as other symbols for item label customisation.  In
-\verb|paraenum| this is done like so:
+\pkg{paraenum} this is done like so:
 \begin{verbatim}
 	\begin{inparaenum}[\itshape A\upshape)]
 	    \item Item 1.
 	    \item Item 2.
 	\end{inparaenum}
 \end{verbatim}
-in \verb|enumitem| the way to do this is:
+in \pkg{enumitem} the way to do this is:
 \begin{verbatim}
 	\begin{enumitem*}[label=\itshape\Alph*\upshape)]
 	    \item Item 1.
@@ -127,7 +127,7 @@ They both produce:
 Say you want to make a template, package, o \LaTeX~guide, so you need
 to textually print \LaTeX~commands so people can actually read them.
 Or you simply want to comment large sections of code.  Then the
-\verb|verbatim| package is essential.
+\pkg{verbatim} package is essential.
 %
 \subsection{Verbatim and Alltt}
 %

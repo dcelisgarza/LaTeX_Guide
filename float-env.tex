@@ -22,7 +22,7 @@ shows possible placement specifiers and their meaning.
     t   & Place at the \emph{top} of the page.\\
     b   & Place at the \emph{bottom} of the page.\\
     p   & Place in a \emph{dedicated} page.\\
-    H   & Place \emph{exactly} where it occurs in the source code, needs \verb|float| package.\\
+    H   & Place \emph{exactly} where it occurs in the source code, needs \pkg{float} package.\\
     !   & Overrides \LaTeX parameters for determining good float positions.\\
     !htbp   & Overrides \LaTeX parameters and finds the best position out of all placings.\\
     \bottomrule
@@ -31,7 +31,7 @@ shows possible placement specifiers and their meaning.
 
 Along with these, there's the command, \verb|\FloatBarrier|, which
 forces all previous floats to be rendered before it.  And the
-\verb|placeins| package, often used with the \verb|section| option,
+\pkg{placeins} package, often used with the \verb|section| option,
 which forces floats to be placed within the section they are called.
 
 Generally, floats require a caption, which is added by the command
@@ -180,7 +180,7 @@ three\footnote{You seek the holy grail.}:
 \item Simplicity: how many borders does it have---does it really need
   all those vertical and/or horizontal borders?
 \end{enumerate}
-The package \verb|booktabs| provides improved versions of the
+The package \pkg{booktabs} provides improved versions of the
 horizontal line commands, \verb|\hline| and
 \verb|\cline{}|.\footnote{If there's a need for non-tabular horizontal
   lines---such as redefining footnote rules---you should still use
@@ -213,7 +213,7 @@ borders as much as possible without sacrificing readability.  For most
 purposes, tables only need horizontal lines at the top, bottom, and
 for separating heading from the body.  There is also
 \verb|\cmidrule{i-j}| which spans columns $i$ to $j$.  The
-\verb|array| package extends table functionality by providing extra
+\pkg{array} package extends table functionality by providing extra
 arguments for table customisation.  The columns are represented by
 \verb|l|, \verb|c| and \verb|r| for left, center and right alignment,
 they can be placed immediately after one another or separated by
@@ -255,13 +255,13 @@ generating code is:
     \end{tabular}
 \end{table}
 
-The documentation for \verb|booktabs| contains further information on
+The documentation for \pkg{booktabs} contains further information on
 table design, formatting, and package features.
 %
 \subsection{Multicolumn and Multirow Tables}
 %
 Sometimes tables have fields which span more than one row or column
-(sometimes both).  When this is unavoidable, the \verb|multirow|
+(sometimes both).  When this is unavoidable, the \pkg{multirow}
 package provides the commands:
 \begin{verbatim}
 	\verb|\multirow{num_rows}{width}{contents}|
@@ -317,7 +317,7 @@ because it's an excellent non-trivial minimal working example:
 \subsection{Multipage Tables}
 %
 Sometimes a project requires tables which span more than a single
-page.  For cases such as these, the \verb|longtable| package provides
+page.  For cases such as these, the \pkg{longtable} package provides
 the \verb|longtable| environment, which offers customisation commands
 relevant to multipage
 tables\footnote{\url{http://mirrors.rit.edu/CTAN/macros/latex/required/tools/longtable.pdf}}.
@@ -338,8 +338,8 @@ declared as follows:
 	    \bottomrule
 	\end{longtable}
 \end{verbatim}
-\verb|longtable| also works with the functionality offered by the
-\verb|multirow| package.  However, multiple compilations ($4+$) may be
+\pkg{longtable} also works with the functionality offered by the
+\pkg{multirow} package.  However, multiple compilations ($4+$) may be
 required to get long tables with multirows and/or multicolumns looking
 as they should.
 %
