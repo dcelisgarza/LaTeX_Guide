@@ -10,13 +10,13 @@ Both stratified listing environments have four standard nesting levels
 (\verb|enum<x>| counters).  Bullet shapes, enumeration characters, and
 list levels can be specified and customised in the environment's
 options,
-\verb|\begin{environment}[options]|\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/List_Structures}}.
+\cs{begin{environment}[options]}\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/List_Structures}}.
   The \verb|enumitem| package expands this capability.
 %
 \subsection{Itemize}
 %
 The \verb|itemize| environment lists items as bullet-point lists.
-Bullet points can be redefined with \verb|\renewcommand{}{}| or with
+Bullet points can be redefined with \cs{renewcommand{}{}} or with
 functionality offered by the \pkg{enumitem} package.  The environment
 is used as follows:
 \begin{verbatim}
@@ -52,7 +52,7 @@ indentation (see section \ref{s:contents}).
 \subsection{Enumerate Environment}
 %
 The \verb|enumerate| environment places items as numbered lists.  The
-numbering can be redefined with \verb|\renewcommand{}{}| or with
+numbering can be redefined with \cs{renewcommand{}{}} or with
 functionality offered by the \pkg{enumitem} package.  It's declared
 as follows:
 \begin{verbatim}
@@ -97,8 +97,8 @@ indentation (see section \ref{s:contents}).
 %
 There are a couple of ways to do this, with either the \pkg{paralist}
 or \pkg{enumitem} package.  For \pkg{paralist}, the counter tokens
-are A, a, I, i and 1; and respectively represent the \verb|\Alph|,
-\verb|\alph|, \verb|\Roman|, \verb|\roman|, and \verb|\arabic| counter
+are A, a, I, i and 1; and respectively represent the \cs{Alph},
+\cs{alph}, \cs{Roman}, \cs{roman}, and \cs{arabic} counter
 styles.  Conversely, \pkg{enumitem} uses them explicitly.  Both
 environments can take optional font shape switches and commands, as
 well as other symbols for item label customisation.  In
@@ -136,7 +136,7 @@ written within it (spaces included), regardless of what it is.  It's
 useful for printing \LaTeX~ commands in independent lines.  There is
 also a way to print in-line verbatim, \verb+\verb|content|+, where the
 first character after
-\verb|\verb| is the delimiter---which can be any character except for *.  The \verb|alltt|
+\cs{verb} is the delimiter---which can be any character except for *.  The \env{alltt}
 environment is somewhat different in that it accepts \emph{some}
 commands within
 it\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Paragraph_Formatting}}.

@@ -29,27 +29,27 @@ shows possible placement specifiers and their meaning.
   \end{tabular}
 \end{table}
 
-Along with these, there's the command, \verb|\FloatBarrier|, which
+Along with these, there's the command, \cs{FloatBarrier}, which
 forces all previous floats to be rendered before it.  And the
 \pkg{placeins} package, often used with the \verb|section| option,
 which forces floats to be placed within the section they are called.
 
 Generally, floats require a caption, which is added by the command
-\verb|\caption{}|.  As a rule, table captions in tables are found at
+\cs{caption{}}.  As a rule, table captions in tables are found at
 the top, while figure captions at the bottom.  There is also a starred
-version, \verb|\caption*{}|, that eliminates the float number, useful
+version, \cs{caption*{}}, that eliminates the float number, useful
 when tables or figures need notes.  In order to reference a float, it
-must be assigned a label, \verb|\label{}|, after the caption.  If a
+must be assigned a label, \cs{label{}}, after the caption.  If a
 float has no caption but needs a label, an empty caption can be added
-before labeling, \verb|\caption{}\label{label}|\footnote{Do \emph{not}
+before labeling, \cs{caption{}\label{label}}\footnote{Do \emph{not}
   use starred captions when labeling, otherwise there will be
   nothing---but emptiness and deep internal sadness---for the label to
   reference.}.  Floats are also generally centered on a page/column,
-so the \verb|\centering| alignment switch is usually the first line in
+so the \cs{centering} alignment switch is usually the first line in
 a float environment.  In multicolumn documents, the normal
 environments may overlap with the text and each other.  Starred
 versions, \verb|{figure*}| and \verb|{table*}| avoid this issue by
-reserving the whole page width (the value of \verb|\width|) for the
+reserving the whole page width (the value of \cs{width}) for the
 float.  Unfortunately, not all placement options work with starred
 floats.
 %
@@ -75,7 +75,7 @@ The \verb|figure| environment is generally used in the following way:
 	\end{figure}
 \end{verbatim}
 
-\verb|\includegraphics[]{}| can be used on its own to include in-line
+\cs{includegraphics[]{}} can be used on its own to include in-line
 images.  Its options and their descriptions are found in table
 \ref{t:inclgraph}\footnote{Edited from
   \url{https://en.wikibooks.org/wiki/LaTeX/Importing_Graphics}.}.
@@ -181,11 +181,11 @@ three\footnote{You seek the holy grail.}:
   all those vertical and/or horizontal borders?
 \end{enumerate}
 The package \pkg{booktabs} provides improved versions of the
-horizontal line commands, \verb|\hline| and
-\verb|\cline{}|.\footnote{If there's a need for non-tabular horizontal
+horizontal line commands, \cs{hline} and
+\cs{cline{}}.\footnote{If there's a need for non-tabular horizontal
   lines---such as redefining footnote rules---you should still use
-  \texttt{\textbackslash hline}.}  They are: \verb|\toprule|,
-\verb|\midrule|, \verb|\cmidrule{}|, and \verb|\bottomrule|.  They all
+  \texttt{\textbackslash hline}.}  They are: \cs{toprule},
+\cs{midrule}, \cs{cmidrule{}}, and \cs{bottomrule}.  They all
 provide additional spacing to make tables more readable, and accept
 options to modify their trimming and thickness.  A table is declared
 in the following way:
@@ -212,7 +212,7 @@ In line with the three principles of table design, one must avoid
 borders as much as possible without sacrificing readability.  For most
 purposes, tables only need horizontal lines at the top, bottom, and
 for separating heading from the body.  There is also
-\verb|\cmidrule{i-j}| which spans columns $i$ to $j$.  The
+\cs{cmidrule{i-j}} which spans columns $i$ to $j$.  The
 \pkg{array} package extends table functionality by providing extra
 arguments for table customisation.  The columns are represented by
 \verb|l|, \verb|c| and \verb|r| for left, center and right alignment,
@@ -264,13 +264,13 @@ Sometimes tables have fields which span more than one row or column
 (sometimes both).  When this is unavoidable, the \pkg{multirow}
 package provides the commands:
 \begin{verbatim}
-	\verb|\multirow{num_rows}{width}{contents}|
-	\verb|\multicolumn{num_columns}{column_alignment and borders}{contents}|
+	\cs{multirow{num_rows}{width}{contents}}
+	\cs{multicolumn{num_columns}{column_alignment and borders}{contents}}
 \end{verbatim}
-An asterisk ``*'' as width in \verb|\multirow| stands for the
-contents' natural width.  \verb|\multicolumn| gobbles all relevant
+An asterisk ``*'' as width in \cs{multirow} stands for the
+contents' natural width.  \cs{multicolumn} gobbles all relevant
 columns, so there's no need to add the gobbled ampersands.  If
-\verb|\multirow| is used, all subsequent rows in the same column(s)
+\cs{multirow} is used, all subsequent rows in the same column(s)
 must be left empty and take up the same number of columns.  Table
 \ref{t:multirowcol} was sourced directly from the wiki entry for
 tables\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Tables}}

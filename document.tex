@@ -17,9 +17,9 @@ the preamble, just before the document proper.
 	\author{auth_1\thanks{affil_1}, auth_2\thanks{affil_2},...}
 	\date{<date>}
 \end{verbatim}
-The date can be dynamically updated to the OS' by using \verb|\today|
-as the \verb|\date{}| command's argument.  The affiliation is added as
-a footnote by the \verb|\thanks{}| command.
+The date can be dynamically updated to the OS' by using \cs{today}
+as the \cs{date} command's argument.  The affiliation is added as
+a footnote by the \cs{thanks\marg{}} command.
 
 The preferred way to add author affiliations is by using the
 \pkg{authblk} package:
@@ -38,7 +38,7 @@ It also tidies and simplifies having multiple affiliations per author,
 and multiple authors per affiliation.
 
 Printing the titular information requires the command
-\verb|\maketitle| to be inside the document environment.
+\cs{maketitle} to be inside the document environment.
 
 %
 \section{Paging}
@@ -47,7 +47,7 @@ Printing the titular information requires the command
 Page numbering and formatting are two of the most important, yet most
 overlooked things in document typesetting.  There are a few paging
 commands and styles but the common ones are found in table
-\ref{t:page}.  The \verb|\pagenumbering{<style_name>}| changes the
+\ref{t:page}.  The \cs{pagenumbering\marg{style name}} changes the
 page numbering to one of the default styles and resets the counter to
 its default value of 1.
 \begin{table}[!htbp]
@@ -58,18 +58,18 @@ its default value of 1.
         \toprule
         Command & Function \\
         \midrule
-        \verb|\pagebreak| & New page with spread out paragraphs. \\
-        \verb|\newpage| & New page with normal paragraphs. \\
-        \verb|\clearpage| & New page that cannot automatically have floats. \\
-        \verb|\cleardoublepage| & Sale as \verb|clearpage| but on two pages. \\
+        \cs{pagebreak} & New page with spread out paragraphs. \\
+        \cs{newpage} & New page with normal paragraphs. \\
+        \cs{clearpage} & New page that cannot automatically have floats. \\
+        \cs{cleardoublepage} & Sale as \cs{clearpage} but on two pages. \\
         \bottomrule
     \end{tabular}
 \end{table}
 
 There are also paging styles which modify a single page's style.  The
 most common default page styles and their function are found in table
-\ref{t:pagestyle}.  They are declared within the \verb|\pagestyle{}|
-(all pages), or \verb|\thispagestyle{}| (this page only) commands.
+\ref{t:pagestyle}.  They are declared within the \cs{pagestyle\marg{}}
+(all pages), or \cs{thispagestyle\marg{}} (this page only) commands.
 \begin{table}[!htbp]
     \centering
     \caption{Common default page styles.}
@@ -78,9 +78,9 @@ most common default page styles and their function are found in table
         \toprule
         Style & Function \\
         \midrule
-        \verb|empty| & Blank header and footer. \\
-        \verb|plain| & Blank header, footer contains a centered page number.\\
-        \verb|headings| & Blank footer, header contains page number \& relevant info. \\
+        \opt{empty} & Blank header and footer. \\
+        \opt{plain} & Blank header, footer contains a centered page number.\\
+        \opt{headings} & Blank footer, header contains page number \& relevant info. \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -97,23 +97,23 @@ use.  However there are times---such as when writing a thesis template
 and short but comprehensive \LaTeX~tutorial---when you need special
 formatting options.  Such options follow the structure:
 \begin{itemize}
-    \item \verb|\setlength{\lengthcommand}{<len>}|: set a length command to a new value \verb|<len>|.
-    \item \verb|\addtolength{\lengthcommand}{<len>}|: add a value, \verb|<len>|, to a length parameter.
-    \item \verb|\linespread{<len>}|: set inter-line spacing to the value \verb|<len>|.
+    \item \cs{setlength\marg{command}\marg{length}}: set a length command to a new value \meta{length}.
+    \item \cs{addtolength\marg{command}\marg{length}}: add a value, \meta{length}, to a length parameter.
+    \item \cs{linespread\marg{len}}: set inter-line spacing to the value \meta{length}.
 \end{itemize}
 Added lengths can be negative, so it is possible to subtract lengths.
 It's also possible to use factors of one length to define another by
-placing the factor before a specific \verb|\lengthcommand|,
+placing the factor before a specific \cs{lengthcommand},
 e.g. \verb|-0.5\textwidth| divides the text width by $-2$.
 
-There are \verb|\lengthcommand|s for all manner of things, from margin
+There are \cs{lengthcommand}s for all manner of things, from margin
 padding to paragraph skip length---and the need to modify them is
 niche at best, so most are excluded from this guide.  More information
 on lengths can be found in the lengths entry of the
 \LaTeX~wikibook\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Lengths}}.
-The most used by far are \verb|\textwidth|---text width, which is
+The most used by far are \cs{textwidth}---text width, which is
 often different from the page width due to text padding and
-multicolumns---and \verb|\width|---page width with margins---because
+multicolumns---and \cs{width}---page width with margins---because
 of how useful they are in scaling images.
 
 %
@@ -124,8 +124,8 @@ of how useful they are in scaling images.
 The \verb|document| environment is where the document's actual content
 is found.  It is the master environment within which all other
 environments must be called.  Thus the first line after the preamble
-is \emph{always} \verb|\begin{document}| and the \texttt{.tex} file's
-very last line is \emph{always} \verb|\end{document}|.
+is \emph{always} \cs{begin{document}} and the \texttt{.tex} file's
+very last line is \emph{always} \cs{end{document}}.
 
 \section{Document Sectioning}
 %
@@ -140,11 +140,11 @@ levels than the \LaTeX~default, you are most likely doing it
 let it happen to you, structure your thoughts, documents, and code
 properly.  The standard sectioning commands are declared as follows:
 \begin{itemize}
-	\item \verb|\part{<part_name>}|: Parts. Primarily used in book writing.
-	\item \verb|\chapter{<chapter_title>}|: Chapters.
-	\item \verb|\section{<section_title>}|: Sections.
-	\item \verb|\subsection{<subsection_title}>|: Subsections.
-	\item \verb|\subsubsection{<subsubsection_title>}|: Subsubsections.
+\item \cs{part\marg{part name}}: Parts. Primarily used in book writing.
+\item \cs{chapter\marg{chapter title}}: Chapters.
+\item \cs{section\marg{section title}}: Sections.
+\item \cs{subsection\marg{subsection title}}: Subsections.
+\item \cs{subsubsection\marg{subsubsection title}}: Subsubsections.
 \end{itemize}
 %
 Their starred versions prevents them from being numbered, and stops

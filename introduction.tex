@@ -1,7 +1,7 @@
 \chapter{Introduction to \LaTeX}
 %
 \section{Quick Description}\label{s:qd}
-\LaTeX~(written \verb|\LaTeX|) is an open-source document typesetting
+\LaTeX~(written \cs{LaTeX}) is an open-source document typesetting
 language originally created as \TeX~by renowned mathematician and
 computer scientist, Donald E. Knuth, as a means of incorporating the
 best typesetting practices of academic---predominantly
@@ -13,7 +13,7 @@ academic typesetting language for mathematicians has expanded its
 scope to include all three basic sciences, computer science,
 engineering, writing, and even music.  It's an extremely flexible tool
 that can produce all kinds of documents from personal letters to
-beamer presentations, and everything in between.
+\cls{beamer} presentations, and everything in between.
 
 The language is characterised by its modularity, flexibility, and
 ability to produce beautiful, standardised, and reproducible
@@ -141,7 +141,7 @@ most common ones, their \LaTeX~character, and usage.
     En Dash & -- & \verb|--| & Ranges, scores, conflict/connection. \\
     Em Dash & --- & \verb|---| & Cursory explanation, no pre/post-space. \\
     Double Em Dash & ------ & \verb|------| & Interrupted word, no pre-space. \\
-    Ellipses & \ldots & \verb|\ldots| & Pause, pre/post-space optional (format). \\
+    Ellipses & \ldots & \cs{ldots} & Pause, pre/post-space optional (format). \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -159,16 +159,16 @@ shows the symbol, its escape method (how to print them), and function.
     \toprule
     Symbol	&	Escape	&	Function\\
     \midrule
-    \% &	\verb|\%|	&	Comment.\\
-    \textbackslash &	\verb|\textbackslash|	&	Escape other characters, initiate macro. \\
-    \& &	\verb|\&|	&	Align delimiter.\\
-    \~{} &	\verb|\~{}| or \verb|$ \sim $|	&	Non-breaking space. It's a character, not a space.\\
-    \# &	\verb|\#|	&	Macro numbered argument.\\
-    \$ &	\verb|\$|	&	Maths environment (\verb|$ maths $|).\\
+    \% &	\cs{\%}	&	Comment.\\
+    \textbackslash &	\cs{textbackslash}	&	Escape other characters, initiate macro. \\
+    \& &	\cs{\&}	&	Align delimiter.\\
+    \~{} &	\cs{~{}} or \verb|$ \sim $|	&	Non-breaking space. It's a character, not a space.\\
+    \# &	\cs{\#}	&	Macro numbered argument.\\
+    \$ &	\cs{\$}	&	Maths environment (\cs{$ maths $}).\\
     \$\$ &	\verb|\$\$|	&	Display maths environment (\verb|$$ maths $$|).\\
     \char`\^ &	\verb|\char`\^|	&	Superscript (maths environment).\\
     \_ &	\verb|\_|	&	Subscript (maths environment).\\
-    \textbackslash\textbackslash &	\verb|\textbackslash|($ \times 2$)	&	Line break.\\
+    \textbackslash\textbackslash &	\cs{textbackslash}($ \times 2$)	&	Line break.\\
     \{\} &	\verb|\{\}|	&	Argument.\\
     \bottomrule
   \end{tabular}

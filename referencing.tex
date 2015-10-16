@@ -2,8 +2,8 @@
 \section{Referencing}
 %
 Referencing in \LaTeX~is extremely easy to do, all it requires is a
-label---\verb|\label{}|---and reference---\verb|ref{}| for
-non-equations, and \verb|\eqref{}| for equations---commands.
+label---\cs{label{}}---and reference---\cs{ref{}} for
+non-equations, and \cs{eqref{}} for equations---commands.
 Referencing floats also requires the label to come after a non-starred
 caption.
 
@@ -33,7 +33,7 @@ two ways of doing so:
       provides \texttt{.bib} files by clicking Cite under an article
       and selecting \BibTeX~at the bottom left of the popup window.
 \end{itemize}
-They can be referenced using the \verb|\cite[]{}|, where the optional
+They can be referenced using the \cs{cite[]{}}, where the optional
 chevrons can be omitted, and the bibliographic label is placed inside
 the braces.
 %
@@ -58,7 +58,7 @@ The preferred way of handling bibliographies is by using the
 \pkg{natbib} package together with \BibTeX.  \pkg{natbib} offers
 further citing options and commands which are too numerous and readily
 available\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/More_Bibliographies}}
-to be placed here.  Though I'd like to mention \verb|\nocite{}|,
+to be placed here.  Though I'd like to mention \cs{nocite{}},
 because it adds the specified entry to the bibliography, but doesn't
 print the reference in-text.  If the argument is an asterisk, *, all
 entries in the \verb|.bib| file are added to the bibliography
@@ -68,7 +68,7 @@ Using \BibTeX~requires a separate \verb|.bib| file, where entries are
 defined according to specific formats depending on the type of
 document or file to be cited, the first string of which is the
 bibliographic label.  The following commands are then placed after all
-the document's content and before \verb|\end{document}|:
+the document's content and before \cs{end{document}}:
 \begin{verbatim}
     \bibliographystyle{<style>}
     \bibliography{<filename>}
