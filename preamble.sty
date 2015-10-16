@@ -5,7 +5,6 @@
 %                                                                   %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{pkgloader}
-\documentclass[12pt]{report}      % Document type declaration.
 
 \usepackage[
   top    = 1in,
@@ -73,10 +72,8 @@
 % Clever cross-references.  Refer to documentation.
 \usepackage{cleveref}
 
-% Bottom paragraph spacing.
-\setlength{\parskip}{2ex}
-
-\newcounter{originalpagenumber}    % Page number counter for the bibliography after appendices.
+% Page number counter for the bibliography after appendices.
+\newcounter{originalpagenumber}
 
 % Hyperlinks in the document (and turns cross-references into links)
 \usepackage[
@@ -88,8 +85,58 @@
   hyperfootnotes = true
 ]{hyperref}
 
+\usepackage{fontspec}
+
 \LoadPackagesNow
-\graphicspath{{images/}}        % Image search paths
+
+% Bottom paragraph spacing.
+\setlength{\parskip}{2ex}
+
+% Image search paths
+\graphicspath{{images/}}
+
+\newfontface\titlefontface{Baskerville}
+\newcommand\titlefont{\fontsize{60}{72}\titlefontface}
+
+\RenewDocumentCommand{\maketitle}{}{%
+  % Clear canvas allows for a fully customisable front page.
+  \thispagestyle{empty}
+  \begin{center}
+  \null
+  \vfill
+
+  \begingroup
+    \titlefont
+    \@title
+    \\[1.5ex]
+    \@subtitle
+  \endgroup
+
+  \vfill
+
+  \par\noindent
+
+  Monterrey, N.L., Mexico \hfill \@author \hfill \today\\
+
+  \end{center}
+  \clearpage
+}
+
+\NewDocumentCommand{\frontmatter}{}{
+  \clearpage
+  \pagenumbering{roman}
+}
+\NewDocumentCommand{\mainmatter}{}{%
+  \clearpage
+  \setcounter{page}{1}
+  \pagenumbering{arabic}
+}
+\NewDocumentCommand{\backmatter}{}{}
+
+\usepackage{xpatch}
+\newcommand\useTOCline[1]{\phantomsection\addcontentsline{toc}{chapter}{#1}}
+\xpretocmd\listoftables{\useTOCline{List of Tables}}{}{}
+\xpretocmd\listoffigures{\useTOCline{List of Figures}}{}{}
 
 % Packages of potential interest:
 %

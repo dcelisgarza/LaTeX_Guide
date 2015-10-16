@@ -40,4 +40,17 @@
 %    \sup =,
   }
 
+\NewDocumentCommand \SetVariable { m m }
+  { \tl_set:cn {#1} {#2} }
+
+\NewDocumentCommand \GetVariable { m }
+  { \tl_use:c {#1} \ignorespaces }
+
+\RenewDocumentCommand \title { m o }
+  {
+    \cs_set_protected:Npn \@title {#1}
+    \IfValueT {#2}
+      { \cs_set_protected:Npn \@subtitle {#2} }
+  }
+
 \ExplSyntaxOff
