@@ -138,6 +138,11 @@
 \xpretocmd\listoftables{\useTOCline{List of Tables}}{}{}
 \xpretocmd\listoffigures{\useTOCline{List of Figures}}{}{}
 
+\usepackage{enumitem}
+\newlist{resourcelist}{description}{1}
+\setlist[resourcelist]{font=\makeresourcelistitem}
+\newcommand{\makeresourcelistitem}[1]{#1\\}
+
 % Packages of potential interest:
 %
 % - minted   :: Displaying code colourfully.  Requires Python 2.7 or
