@@ -1,28 +1,16 @@
 \chapter{Creating a Document}
 \section{Titular Information}
 %
-
-Titular information is declared in the preamble after the package
-declaration.  It varies greatly between document classes.  However,
-key pieces of information which most documents must have, i.e. title,
-author and date; academic documents also require author affiliations,
-and some documents require subtitles.  It's important to note that all
-these are added at the user's behest.\footnote{Contrary to word
-  processors, \LaTeX~will \emph{not} automatically do anything unless
-  the user expressly tells it to.} This information is added last in
-the preamble, just before the document proper.
+Titular information is declared in the preamble after the package declaration. It varies greatly between document classes. However, key pieces of information which most documents must have, i.e. title, author and date; academic documents also require author affiliations, and some documents require subtitles. It's important to note that all these are added at the user's behest.\footnote{Contrary to word processors, \LaTeX~will \emph{not} automatically do anything unless the user expressly tells it to.} This information is added last in the preamble, just before the document proper.
 \begin{verbatim}
 	\title{Document Title}
 	\subtitle{Document Subtitle}
 	\author{auth_1\thanks{affil_1}, auth_2\thanks{affil_2},...}
 	\date{<date>}
 \end{verbatim}
-The date can be dynamically updated to the OS' by using \cs{today}
-as the \cs{date} command's argument.  The affiliation is added as
-a footnote by the \cs{thanks\marg{}} command.
+The date can be dynamically updated to the OS' by using \verb|\today| as the \verb|\date{}| command's argument. The affiliation is added as a footnote by the \verb|\thanks{}| command. 
 
-The preferred way to add author affiliations is by using the
-\pkg{authblk} package:
+The preferred way to add author affiliations is by using the \verb|authblk| package:
 \begin{verbatim}
 	\author[x1]{author_1}
 	\affil[x1]{affil_1}
@@ -32,24 +20,13 @@ The preferred way to add author affiliations is by using the
 	\author[xn]{author_n}
 	\affil[xn]{affil_n}
 \end{verbatim}
-This package makes keeping track of authors and affiliations much
-easier because it relies on labels rather than a command's position.
-It also tidies and simplifies having multiple affiliations per author,
-and multiple authors per affiliation.
+This package makes keeping track of authors and affiliations much easier because it relies on labels rather than a command's position. It also tidies and simplifies having multiple affiliations per author, and multiple authors per affiliation.
 
-Printing the titular information requires the command
-\cs{maketitle} to be inside the document environment.
-
+Printing the titular information requires the command \verb|\maketitle| to be inside the document environment.
 %
 \section{Paging}
 %
-
-Page numbering and formatting are two of the most important, yet most
-overlooked things in document typesetting.  There are a few paging
-commands and styles but the common ones are found in table
-\ref{t:page}.  The \cs{pagenumbering\marg{style name}} changes the
-page numbering to one of the default styles and resets the counter to
-its default value of 1.
+Page numbering and formatting are two of the most important, yet most overlooked things in document typesetting. There are a few paging commands and styles but the common ones are found in table \ref{t:page}. The \verb|\pagenumbering{<style_name>}| changes the page numbering to one of the default styles and resets the counter to its default value of 1.
 \begin{table}[!htbp]
     \centering
     \caption{Common paging commands.}
@@ -58,18 +35,15 @@ its default value of 1.
         \toprule
         Command & Function \\
         \midrule
-        \cs{pagebreak} & New page with spread out paragraphs. \\
-        \cs{newpage} & New page with normal paragraphs. \\
-        \cs{clearpage} & New page that cannot automatically have floats. \\
-        \cs{cleardoublepage} & Sale as \cs{clearpage} but on two pages. \\
+        \verb|\pagebreak| & New page with spread out paragraphs. \\
+        \verb|\newpage| & New page with normal paragraphs. \\
+        \verb|\clearpage| & New page that cannot automatically have floats. \\
+        \verb|\cleardoublepage| & Sale as \verb|clearpage| but on two pages. \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-There are also paging styles which modify a single page's style.  The
-most common default page styles and their function are found in table
-\ref{t:pagestyle}.  They are declared within the \cs{pagestyle\marg{}}
-(all pages), or \cs{thispagestyle\marg{}} (this page only) commands.
+There are also paging styles which modify a single page's style. The most common default page styles and their function are found in table \ref{t:pagestyle}. They are declared within the \verb|\pagestyle{}| (all pages), or \verb|\thispagestyle{}| (this page only) commands.
 \begin{table}[!htbp]
     \centering
     \caption{Common default page styles.}
@@ -78,75 +52,40 @@ most common default page styles and their function are found in table
         \toprule
         Style & Function \\
         \midrule
-        \opt{empty} & Blank header and footer. \\
-        \opt{plain} & Blank header, footer contains a centered page number.\\
-        \opt{headings} & Blank footer, header contains page number \& relevant info. \\
+        \verb|empty| & Blank header and footer. \\
+        \verb|plain| & Blank header, footer contains a centered page number.\\
+        \verb|headings| & Blank footer, header contains page number \& relevant info. \\
         \bottomrule
     \end{tabular}
 \end{table}
 
+There are other pace styles defined in packages such as \verb|fancyhdr|, whose manuals and downloads can be found on the net.
 %
-There are other pace styles defined in packages such as
-\pkg{fancyhdr}, whose manuals and downloads can be found on the net.
-
 \subsection{Page Format}
 %
-
-The standard \LaTeX~page formatting is usually sufficient for everyday
-use.  However there are times---such as when writing a thesis template
-and short but comprehensive \LaTeX~tutorial---when you need special
-formatting options.  Such options follow the structure:
+The standard \LaTeX~page formatting is usually sufficient for everyday use. However there are times---such as when writing a thesis template and short but comprehensive \LaTeX~tutorial---when you need special formatting options. Such options follow the structure:
 \begin{itemize}
-    \item \cs{setlength\marg{command}\marg{length}}: set a length command to a new value \meta{length}.
-    \item \cs{addtolength\marg{command}\marg{length}}: add a value, \meta{length}, to a length parameter.
-    \item \cs{linespread\marg{len}}: set inter-line spacing to the value \meta{length}.
+    \item \verb|\setlength{\lengthcommand}{<len>}|: set a length command to a new value \verb|<len>|.
+    \item \verb|\addtolength{\lengthcommand}{<len>}|: add a value, \verb|<len>|, to a length parameter.
+    \item \verb|\linespread{<len>}|: set inter-line spacing to the value \verb|<len>|.
 \end{itemize}
-Added lengths can be negative, so it is possible to subtract lengths.
-It's also possible to use factors of one length to define another by
-placing the factor before a specific \cs{lengthcommand},
-e.g. \verb|-0.5\textwidth| divides the text width by $-2$.
+Added lengths can be negative, so it is possible to subtract lengths. It's also possible to use factors of one length to define another by placing the factor before a specific \verb|\lengthcommand|, e.g. \verb|-0.5\textwidth| divides the text width by $-2$.
 
-There are \cs{lengthcommand}s for all manner of things, from margin
-padding to paragraph skip length---and the need to modify them is
-niche at best, so most are excluded from this guide.  More information
-on lengths can be found in the lengths entry of the
-\LaTeX~wikibook\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Lengths}}.
-The most used by far are \cs{textwidth}---text width, which is
-often different from the page width due to text padding and
-multicolumns---and \cs{width}---page width with margins---because
-of how useful they are in scaling images.
-
+There are \verb|\lengthcommand|s for all manner of things, from margin padding to paragraph skip length---and the need to modify them is niche at best, so most are excluded from this guide. More information on lengths can be found in the lengths entry of the \LaTeX~wikibook\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Lengths}}. The most used by far are \verb|\textwidth|---text width, which is often different from the page width due to text padding and multicolumns---and \verb|\width|---page width with margins---because of how useful they are in scaling images.
 %
 \section{Document Environment}
 %
+The \verb|document| environment is where the document's actual content is found. It is the master environment within which all other environments must be called. Thus the first line after the preamble is \emph{always} \verb|\begin{document}| and the \texttt{.tex} file's very last line is \emph{always} \verb|\end{document}|.
 %
-
-The \verb|document| environment is where the document's actual content
-is found.  It is the master environment within which all other
-environments must be called.  Thus the first line after the preamble
-is \emph{always} \cs{begin{document}} and the \texttt{.tex} file's
-very last line is \emph{always} \cs{end{document}}.
-
 \section{Document Sectioning}
 %
-
-A standard document can be sectioned into parts, chapters, sections,
-subsections and subsubsections.  However, the user can add new and
-edit existing sectioning commands to change their format, or even add
-more arguments.  It is quite well known---in \emph{most} reputable
-moustache-twirling circles---that should you require more sectioning
-levels than the \LaTeX~default, you are most likely doing it
-\emph{wrong}, and will forever be cursed with spaghetti code.  Don't
-let it happen to you, structure your thoughts, documents, and code
-properly.  The standard sectioning commands are declared as follows:
+A standard document can be sectioned into parts, chapters, sections, subsections and subsubsections. However, the user can add new and edit existing sectioning commands to change their format, or even add more arguments. It is quite well known---in \emph{most} reputable moustache-twirling circles---that should you require more sectioning levels than the \LaTeX~default, you are most likely doing it \emph{wrong}, and will forever be cursed with spaghetti code. Don't let it happen to you, structure your thoughts, documents, and code properly. The standard sectioning commands are declared as follows:
 \begin{itemize}
-\item \cs{part\marg{part name}}: Parts. Primarily used in book writing.
-\item \cs{chapter\marg{chapter title}}: Chapters.
-\item \cs{section\marg{section title}}: Sections.
-\item \cs{subsection\marg{subsection title}}: Subsections.
-\item \cs{subsubsection\marg{subsubsection title}}: Subsubsections.
+	\item \verb|\part{<part_name>}|: Parts. Primarily used in book writing.
+	\item \verb|\chapter{<chapter_title>}|: Chapters.
+	\item \verb|\section{<section_title>}|: Sections.
+	\item \verb|\subsection{<subsection_title}>|: Subsections.
+	\item \verb|\subsubsection{<subsubsection_title>}|: Subsubsections.
 \end{itemize}
+Their starred versions prevents them from being numbered, and stops them from being indexed unless they are manually added to the table of contents (see section \ref{s:contents}).
 %
-Their starred versions prevents them from being numbered, and stops
-them from being indexed unless they are manually added to the table of
-contents (see section \ref{s:contents}).

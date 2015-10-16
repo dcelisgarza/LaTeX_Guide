@@ -1,175 +1,109 @@
 \chapter{Introduction to \LaTeX}
 %
 \section{Quick Description}\label{s:qd}
-\LaTeX~(written \cs{LaTeX}) is an open-source document typesetting
-language originally created as \TeX~by renowned mathematician and
-computer scientist, Donald E. Knuth, as a means of incorporating the
-best typesetting practices of academic---predominantly
-mathematical---journals, in an easy to use package.
+\LaTeX~(written \verb|\LaTeX|) is an open-source document typesetting language originally created as \TeX~by renowned mathematician and computer scientist, Donald E. Knuth, as a means of incorporating the best typesetting practices of academic---predominantly mathematical---journals, in an easy to use package. 
 
-\TeX~has now been expanded into \LaTeX---which wraps around many
-primitives and makes the language more accessible. What started as an
-academic typesetting language for mathematicians has expanded its
-scope to include all three basic sciences, computer science,
-engineering, writing, and even music.  It's an extremely flexible tool
-that can produce all kinds of documents from personal letters to
-\cls{beamer} presentations, and everything in between.
+\TeX~has now been expanded into \LaTeX---which wraps around many primitives and makes the language more accessible. What started as an academic typesetting language for mathematicians has expanded its scope to include all three basic sciences, computer science, engineering, writing, and even music. It's an extremely flexible tool that can produce all kinds of documents from personal letters to beamer presentations, and everything in between.
 
-The language is characterised by its modularity, flexibility, and
-ability to produce beautiful, standardised, and reproducible
-documents.  Admittedly, the learning curve can be very
-steep---especially if one is pressed for time---but the end result is
-\emph{very} worth it.
+The language is characterised by its modularity, flexibility, and ability to produce beautiful, standardised, and reproducible documents. Admittedly, the learning curve can be very steep---especially if one is pressed for time---but the end result is \emph{very} worth it.
 
-\LaTeX~is not a word processor, it's a typesetting languange.  As
-such, every \LaTeX~document is comprised of two large sections:
+\LaTeX~is not a word processor, it's a typesetting languange. As such, every \LaTeX~document is comprised of two large sections:
 \begin{enumerate}
-\item Preamble: Where the user loads relevant modules,
-  \emph{packages}, which define a document's characteristics and
-  provide functionality via \emph{backslash commands} (commands for
-  short) and \emph{environments}.
-\item Body: Contains the document's actual content.
+    \item Preamble: Where the user loads relevant modules, \emph{packages}, which define a document's characteristics and provide functionality via \emph{backslash commands} (commands for short) and \emph{environments}.
+    \item Body: Contains the document's actual content.
 \end{enumerate}
 %
 \section{Getting Started}
 %
-There are several freely available distributions depending on your OS,
-as shown in table \ref{t:dist}.
+There are several freely available distributions depending on your OS, as shown in table \ref{t:dist}.
 \begin{table}[!htbp]
-  \centering
-  \caption{\LaTeX~distributions.}
-  \label{t:dist}
-  \begin{tabular}{cc}
-    \toprule
-    Distribution & OS \\
-    \midrule
-    \TeX~Live & Linux \\
-    Mac\TeX & OS X \\
-    Mik\TeX~\& Pro\TeX t & Windows\\
-    \bottomrule
-  \end{tabular}
+    \centering
+    \caption{\LaTeX~distributions.}
+    \label{t:dist}
+    \begin{tabular}{cc}
+        \toprule
+        Distribution & OS \\
+        \midrule
+        \TeX~Live & Linux \\
+        Mac\TeX & OS X \\
+        Mik\TeX~\& Pro\TeX t & Windows\\
+        \bottomrule
+    \end{tabular}
 \end{table}
-Since \LaTeX~is a language rather than a word processor, documents can
-be produced in any plain text editor and compilation carried out via
-console command.  However, this is inefficient and there are better
-alternatives:
+Since \LaTeX~is a language rather than a word processor, documents can be produced in any plain text editor and compilation carried out via console command. However, this is inefficient and there are better alternatives:
 \begin{itemize}
-\item Vim\LaTeX: a Vim module for writing \LaTeX~documents.
-\item Emacs/XEmacs + AUC\TeX~+ Ref\TeX: modules for writing
-  \LaTeX~documents on Emacs/XEmacs.
-\item Dedicated editor: there are a variety of dedicated editors, some
-  of which come with different distributions.  \TeX works for Mik\TeX,
-  \TeX Shop for Mac\TeX~and \TeX Studio for Pro\TeX t.  My personal
-  favourite is \TeX Studio, because it's
-  \begin{inparaenum}[\itshape 1\upshape)]
-  \item lightweight,
-  \item easy to use,
-  \item compatible with Windows, Linux and OS X, and
-  \item comes with a lot of quality of life and advanced features;
-    such as automatic quotes, user-defined compilation trains,
-    wizards, macros, folding, etc.
-  \end{inparaenum}
+    \item Vim\LaTeX: a Vim module for writing \LaTeX~documents.
+    \item Emacs/XEmacs + AUC\TeX~+ Ref\TeX: modules for writing \LaTeX~documents on Emacs/XEmacs.
+    \item Dedicated editor: there are a variety of dedicated editors, some of which come with different distributions. \TeX works for Mik\TeX, \TeX Shop for Mac\TeX~and \TeX Studio for Pro\TeX t. My personal favourite is \TeX Studio, because it's
+    \begin{inparaenum}[\itshape 1\upshape)]
+        \item lightweight,
+        \item easy to use,
+        \item compatible with Windows, Linux and OS X, and
+        \item comes with a lot of quality of life and advanced features; such as automatic quotes, user-defined compilation trains, wizards, macros, folding, etc.
+    \end{inparaenum}    
 \end{itemize}
 
-Being a non-interpreted programming language, \LaTeX~codes generate
-documents upon successful compilation.  Compiling is done via console
-commands or keyboard shortcuts.  All editors provide their own
-defaults, but they're also re-configurable.  There is also something
-known as a \emph{compilation engine}, of which there are a few.  The
-two most modern are \XeLaTeX~(or \XeTeX), and \LuaLaTeX~(or \LuaTeX).
-The standard is still PDF\LaTeX~which does not provide full unicode
-encoding.  All the distributions mentioned above come with all three
-(and more) engines.  The default compilation engine can be specified
-within your editor of choice.  This document was created with
-\XeLaTeX, because it is more mature (less buggy, more features) than
-\LuaLaTeX, and more competent than PDF\LaTeX.  Which means you have to
-use \XeLaTeX~if you want to compile the source code.
+Being a non-interpreted programming language, \LaTeX~codes generate documents upon successful compilation. Compiling is done via console commands or keyboard shortcuts. All editors provide their own defaults, but they're also re-configurable. There is also something known as a \emph{compilation engine}, of which there are a few. The two most modern are \XeLaTeX~(or \XeTeX), and \LuaLaTeX~(or \LuaTeX). The standard is still PDF\LaTeX~which does not provide full unicode encoding. All the distributions mentioned above come with all three (and more) engines. The default compilation engine can be specified within your editor of choice. This document was created with \XeLaTeX, because it is more mature (less buggy, more features) than \LuaLaTeX, and more competent than PDF\LaTeX. Which means you have to use \XeLaTeX~if you want to compile the source code.
 
-A file with a \verb|.bib| bibliography must also be run through the
-\BibTeX~engine, which also comes in all aforementioned distributions
-and can be done within your editor of choice.  Further details
-provided in subsection \ref{sb:bib}.
+A file with a \verb|.bib| bibliography must also be run through the \BibTeX~engine, which also comes in all aforementioned distributions and can be done within your editor of choice. Further details provided in subsection \ref{sb:bib}.
 %
 \section{Best Practices}\label{s:bestpract}
 %
-Code can get ugly pretty quickly, especially when done wrong.  So here
-is a checklist of things that will make your life easier.
+Code can get ugly pretty quickly, especially when done wrong. So here is a checklist of things that will make your life easier.
 \begin{itemize}
-\item Indent sensibly. \LaTeX~does not interpret manual indents as
-  spaces, that's what the spacing commands are for.
-\item Break apart troublesome lines.  A single line break will not
-  interrupt text flow unless a blank line is added between segments.
-  This helps a lot when debugging and writing long equations.
-\item Divide and conquer.  Use information theory ($\log_{2} x$) to
-  optimise your debugging.  Divide things progressively in half
-  (comment out segments), narrowing down your search by halving your
-  search space with each iteration.
-\item Structure your approach to equation writing.  Simplify equations
-  as much as possible.  Typeset small, independent sections and
-  incorporate them where they are needed \emph{after} they have been
-  checked for mistakes.  Repeat process until the complete equation
-  has been typeset.
-\item Use sensible labels.  I like to use ``p''--part, ``c''--chapter,
-  ``s''--section, ``sb''--subsection, ``ssb''--subsubsection,
-  ``f''--figure, ``sf''--subfigure, ``t''--table, ``e''--equation,
-  ``se''--subequations.  Followed by a colon and a short but
-  descriptive name.
-\item Automate as much as possible.  Define user commands for things
-  you will use often.
-\item Customise your editor of choice.  Take time to set up your
-  theme, shortcuts, custom macros, auto-complete, compilation train,
-  flags, dictionary, etc.  Make sure you learn your most used
-  shortcuts, macros, and commands.
+    \item Indent sensibly. \LaTeX~does not interpret manual indents as spaces, that's what the spacing commands are for.
+    \item Break apart troublesome lines. A single line break will not interrupt text flow unless a blank line is added between segments. This helps a lot when debugging and writing long equations.
+    \item Divide and conquer. Use information theory ($\log_{2} x$) to optimise your debugging. Divide things progressively in half (comment out segments), narrowing down your search by halving your search space with each iteration.
+    \item Structure your approach to equation writing. Simplify equations as much as possible. Typeset small, independent sections and incorporate them where they are needed \emph{after} they have been checked for mistakes. Repeat process until the complete equation has been typeset.
+    \item Use sensible labels. I like to use ``p''--part, ``c''--chapter, ``s''--section, ``sb''--subsection, ``ssb''--subsubsection, ``f''--figure, ``sf''--subfigure, ``t''--table, ``e''--equation, ``se''--subequations. Followed by a colon and a short but descriptive name.
+    \item Automate as much as possible. Define user commands for things you will use often.
+    \item Customise your editor of choice. Take time to set up your theme, shortcuts, custom macros, auto-complete, compilation train, flags, dictionary, etc. Make sure you learn your most used shortcuts, macros, and commands.
 \end{itemize}
 %
 \section{Special Writing Characters}
 %
-There exist special writing characters which have specific,
-non-trivial \LaTeX~characters.  Table \ref{t:swc} contains some of the
-most common ones, their \LaTeX~character, and usage.
+There exist special writing characters which have specific, non-trivial \LaTeX~characters. Table \ref{t:swc} contains some of the most common ones, their \LaTeX~character, and usage.
 \begin{table}[!htbp]
-  \centering
-  \caption{Special writing characters.}
-  \label{t:swc}
-  \begin{tabular}{rccl}
-    \toprule
-    Name & Print & Code & Usage \\
-    \midrule
-    English Half-Quotation & `' & \verb|`'| & Nested quotation. \\
-    English Quotation & ``'' & \verb|``''| & Speech or technical term. \\
-    Hyphen & - & \verb|-| & Compound words. \\
-    En Dash & -- & \verb|--| & Ranges, scores, conflict/connection. \\
-    Em Dash & --- & \verb|---| & Cursory explanation, no pre/post-space. \\
-    Double Em Dash & ------ & \verb|------| & Interrupted word, no pre-space. \\
-    Ellipses & \ldots & \cs{ldots} & Pause, pre/post-space optional (format). \\
-    \bottomrule
-  \end{tabular}
+    \centering
+    \caption{Special writing characters.}
+    \label{t:swc}
+    \begin{tabular}{rccl}
+        \toprule
+        Name & Print & Code & Usage \\
+        \midrule
+        English Half-Quotation & `' & \verb|`'| & Nested quotation. \\
+        English Quotation & ``'' & \verb|``''| & Speech or technical term. \\
+        Hyphen & - & \verb|-| & Compound words. \\
+        En Dash & -- & \verb|--| & Ranges, scores, conflict/connection. \\
+        Em Dash & --- & \verb|---| & Cursory explanation, no pre/post-space. \\
+        Double Em Dash & ------ & \verb|------| & Interrupted word, no pre-space. \\
+        Ellipses & \ldots & \verb|\ldots| & Pause, pre/post-space optional (format). \\
+        \bottomrule
+    \end{tabular}
 \end{table}
 %
 \section{Reserved \LaTeX~Characters}\label{s:rlc}
 %
-Like many programming languages, \LaTeX~contains certain reserved
-characters used for different native processes.  Table \ref{t:reschar}
-shows the symbol, its escape method (how to print them), and function.
+Like many programming languages, \LaTeX~contains certain reserved characters used for different native processes. Table \ref{t:reschar} shows the symbol, its escape method (how to print them), and function.
 \begin{table}[!htbp]
-  \centering
-  \caption{Table of special \LaTeX~characters, their escape method, and function.}
-  \label{t:reschar}
-  \begin{tabular}{rcl}
-    \toprule
-    Symbol	&	Escape	&	Function\\
-    \midrule
-    \% &	\cs{\%}	&	Comment.\\
-    \textbackslash &	\cs{textbackslash}	&	Escape other characters, initiate macro. \\
-    \& &	\cs{\&}	&	Align delimiter.\\
-    \~{} &	\cs{~{}} or \verb|$ \sim $|	&	Non-breaking space. It's a character, not a space.\\
-    \# &	\cs{\#}	&	Macro numbered argument.\\
-    \$ &	\cs{\$}	&	Maths environment (\cs{$ maths $}).\\
-    \$\$ &	\verb|\$\$|	&	Display maths environment (\verb|$$ maths $$|).\\
-    \char`\^ &	\verb|\char`\^|	&	Superscript (maths environment).\\
-    \_ &	\verb|\_|	&	Subscript (maths environment).\\
-    \textbackslash\textbackslash &	\cs{textbackslash}($ \times 2$)	&	Line break.\\
-    \{\} &	\verb|\{\}|	&	Argument.\\
-    \bottomrule
-  \end{tabular}
+    \centering
+    \caption{Table of special \LaTeX~characters, their escape method, and function.}
+    \label{t:reschar}
+    \begin{tabular}{rcl}
+        \toprule
+        Symbol	&	Escape	&	Function\\
+        \midrule
+        \% &	\verb|\%|	&	Comment.\\
+        \textbackslash &	\verb|\textbackslash|	&	Escape other characters, initiate macro. \\
+        \& &	\verb|\&|	&	Align delimiter.\\
+         \~{} &	\verb|\~{}| or \verb|$ \sim $|	&	Non-breaking space. It's a character, not a space.\\
+        \# &	\verb|\#|	&	Macro numbered argument.\\
+        \$ &	\verb|\$|	&	Maths environment (\verb|$ maths $|).\\
+        \$\$ &	\verb|\$\$|	&	Display maths environment (\verb|$$ maths $$|).\\
+        \char`\^ &	\verb|\char`\^|	&	Superscript (maths environment).\\
+        \_ &	\verb|\_|	&	Subscript (maths environment).\\
+        \textbackslash\textbackslash &	\verb|\textbackslash|($ \times 2$)	&	Line break.\\
+        \{\} &	\verb|\{\}|	&	Argument.\\
+        \bottomrule
+    \end{tabular}
 \end{table}
