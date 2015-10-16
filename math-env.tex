@@ -1,0 +1,473 @@
+\chapter{Mathematical Environments}
+%
+The primary reason why Don Knuth started developing \TeX~was to create
+an easy and powerful tool for typesetting academic mathematical
+documents.  There are absurdly many mathematical tools and symbols in
+\LaTeX, but this document will only touch the most common ones
+non-mathematicians use.  The packages \pkg{mathtools}, \pkg{bm},
+\pkg{amssymb}, and \pkg{pxfonts} respectively provide mathematical
+packages and symbols, corrected bold maths fonts, other mathematical
+symbols, and more fonts and symbols.  Mathematical symbols, functions
+and typefaces cannot exist outside a mathematical environment, though
+some have non-maths---or text---versions, usually
+\cs{text\marg{symbol name}} or \cs{text\marg{command name}}.
+%
+\section{Maths and Display Maths}
+%
+The two most basic mathematical environments are the inline and
+display maths environments.  The inline maths environment is delimited
+by single dollar signs \verb|$ inline maths $|, which yields
+$ inline maths $.  Inline maths has its limitations because it is
+text-bound, which can cause problems when using mathematical notation
+that extends beyond the bounds of a normal line of text.  For example
+$ \frac{\sum\limits_{i=0}^{n} i}{\sum\limits_{i=0}^{n} 2i} =
+\frac{1}{2} $ generated with,
+\begin{verbatim}
+	\frac{\sum\limits_{i=0}^{n} i}{\sum\limits_{i=0}^{n} 2i} = \frac{1}{2}
+\end{verbatim}
+Which pushes line spacing beyond acceptable levels.  In cases such as
+these, when equation numbering is not an issue, one can use the
+display maths environment delimited by double dollar signs,
+\verb|$$ display maths $$|, or the preferred method (better spacing)
+of using backslash followed by chevrons, \verb|\[ display maths \]|.
+Display maths uncouples the notation from the text and places it
+\emph{exactly} where the command is found the point it's called
+from.  It also lets large symbols scale accordingly.  Using the previous
+equation as an example,
+\[ \frac{\sum\limits_{i=0}^{n} i}{\sum\limits_{i=0}^{n} 2i} =
+  \frac{1}{2}\,, \]
+it's easy to see the need for both.  It's also important to note that
+all mathematical environments gobble spaces.  Use \verb|~|, \verb|\,|,
+or any other spacing command to add spaces.  If you need text to be
+printed within a mathematical environments use the \cs{text{}}
+command and make sure to explicitly add spaces at the beginning and
+end of the normal text to ensure proper spacing.  For example:
+\verb|$x\textrm{apples}+y\text{pears}$|,
+$x\textrm{apples}+y\text{pears}$ vs.
+\verb|$x\textrm{ apples }+y\text{ pears}$|,
+$x\textrm{ apples }+y\text{ pears}$.
+%
+\section{Common Symbols and Functions}
+%
+There are a myriad of symbols and functions for virtually \emph{all}
+areas of maths.  This document touches on the ones non-mathematicians
+will generally use.  If anyone is curious about more symbols make sure
+to check out Scott Pakin's 164-page list of \LaTeX~symbols
+\cite{symbols}.
+%
+\subsection{Greek Maths Symbols}
+%
+All maths greek letters are backslash commands of the letter's name.
+There are capitalised versions which are written the same, but start
+with a capital letter.  Some letters also have variations which are
+denoted as \verb|var<letter_name>|.  Table \ref{t:mg} contains an
+example of this.
+\begin{table}[!htbp]
+    \centering
+    \caption{Examples of maths greek letters.}
+    \label{t:mg}
+    \begin{tabular}{ccc}
+        $\phi$ & $\varphi$ & $\Phi$\\
+        \cs{phi} & \cs{varphi} & \cs{Phi}
+    \end{tabular}
+\end{table}
+There are also bold versions of some symbols, which is specified by
+the \cs{boldsymbol{}} command.  When a bold symbol does not exist
+there's the \cs{pmb{}} (poor man's bold) which prints slightly
+offset symbols to give the appearance of bold typeface.
+%
+\subsection{Common Binary Operations}
+%
+\begin{table}[!htbp]
+    \centering
+    \caption{Common binary operations.}
+    \label{t:bo}
+    \begin{tabular}{ccccccc}
+        $+$ &   $-$   & $\pm$   &   $\mp$   &   $\times$    &   $\div$  &   $\cdot$ \\
+        \cs{+}    &   \cs{-}    &   \cs{pm}  &   \cs{mp}  &   \cs{times}   &   \cs{div} &   \cs{cdot}    \\
+    \end{tabular}
+\end{table}
+%
+\subsection{Common Relation Symbols}
+%
+\begin{table}[!htbp]
+    \centering
+    \caption{Common relation symbols.}
+    \label{t:rs}
+    \begin{tabular}{ccccccccc}
+        $=$ & $\neq$ & $\equiv$ & $\simeq$ & $\approx$ & $\sim$ & $\cong$ & $<$ & $>$\\
+        \cs{=} & \cs{neq} & \cs{equiv} & \cs{simeq} & \cs{approx} & \cs{sim} & \cs{cong} & \cs{<} & \cs{>} \\
+        $\leq$ & $\geq$ & $\ll$ & $\gg$ & $\in$ & $\ni$ & $\propto$ & $\perp$ & $\parallel$\\
+        \cs{leq} & \cs{geq} & \cs{ll} & \cs{gg} & \cs{in} & \cs{ni} & \cs{propto} & \cs{perp} & \cs{paralel}\\
+    \end{tabular}
+\end{table}
+%
+\subsection{Arrows}
+%
+Arrows follow a few rules, capitalising the first letter makes the
+arrow have a two line shaft.  The direction is specified first, if the
+arrow has two heads, left goes before right and up before down.  There
+are two standard types, arrows (always stated as singular) and
+harpoons (singular except left right harpoons).  Harpoons can only be
+horizontal and the orientation of the spike is specified last. Table
+\ref{t:arr} contains some examples.  Arrows can also be specified as
+long, which goes first in the command.
+\begin{table}[!htbp]
+    \centering
+    \caption{Arrows.}
+    \label{t:arr}
+    \begin{tabular}{ccc}
+        $\Leftrightarrow$ & $\updownarrow$ & $\leftrightharpoons$ \\
+        \cs{Leftrightarrow} & \cs{updownarrow} & \cs{leftrightharpoons} \\
+        $\leftharpoonup$ & $\Longleftrightarrow$	& $\longrightarrow$\\
+        \cs{leftharpoonup} & \cs{Longleftrightarrow} & \cs{longrightarrow}
+    \end{tabular}
+\end{table}
+%
+\subsection{Common Miscellaneous Symbols}
+%
+\begin{table}[!htbp]
+    \centering
+    \caption{Common miscellaneous symbols.}
+    \label{t:miscfym}
+    \begin{tabular}{ccccccc}
+        $\ldots$ & $\cdots$ & $\vdots$ & $\ddots$ & $\infty$ & $\hbar$ & $\emptyset$\\
+        \cs{ldots} & \cs{cdots} & \cs{vdots} & \cs{ddots} & \cs{infty} & \cs{hbar} & \cs{emptyset}\\
+        $\exists$ & $\nabla$ & $\neg$ & $\Re$ & $\Im$ & $\angle$ & $\partial$\\
+        \cs{exists} & \cs{nabla} & \cs{neg} & \cs{Re} & \cs{Im} & \cs{angle} & \cs{partial}\\
+        & \multicolumn{5}{c}{$\therefore$} & \\
+        & \multicolumn{5}{c}{\texttt{\textbackslash therefore}} & \\
+    \end{tabular}
+\end{table}
+%
+\subsection{Common Functions}
+%
+\LaTeX~has commands for all basic functions.  They are backslash
+commands defined as the function's shortened name without abuse of
+notation, e.g. inverse trigonometric functions are written as
+\cs{arc\marg{function}}.  In fact, most functions are defined exactly
+how they are written in rigorous pen \& paper maths.
+%
+\subsection{Common Variable-Sized Symbols}
+%
+Some symbols can change size depending on where they are in-document.
+Sometimes however, they're not big enough for their argument.  This is
+solved by the nest-able \cs{mathlarger{}} command, provided by the
+\pkg{relsize} package.  The number of integrals is defined by the
+number of $i$'s in the command---up to 4 for normal integrals, 3 for
+cyclic ones\footnote{Triple cyclic integrals need the \texttt{pxfonts}
+  or \texttt{txfonts} package}.  Linear integrals can also have dots.
+\begin{table}[!htbp]
+    \centering
+    \caption{Common variable-sized symbols.}
+    \label{t:vss}
+    \begin{tabular}{cccccccc}
+        $\sum$ & $\prod$ & $\int$ & $\oint$ & $\idotsint$ & $\oiiint$ & $\frac{a}{b}$ & $\dfrac{a}{b}$ \\
+        \cs{sum} & \cs{prod} & \cs{int} & \cs{oint} & \cs{idotsint} & \cs{oiiint} & \cs{frac{a}{b}} & \cs{dfrac{a}{b}} \\
+    \end{tabular}
+\end{table}
+%
+\subsection{Non-trivial Delimiters}
+%
+\begin{table}[!htbp]
+    \centering
+    \caption{Non-trivial delimiters.}
+    \label{t:ntd}
+    \begin{tabular}{cccccccc}
+        $\|$ & $|$ & $\langle$ & $\rangle$ & $\lfloor$ & $\rfloor$ & $\lceil$ & $\rceil$ \\
+        \cs{|} & \cs+|+ & \cs{langle} & \cs{rangle} & \cs{lfloor} & \cs{rfloor} & \cs{lceil} & \cs{rceil} \\
+    \end{tabular}
+\end{table}
+%
+\subsection{Common Mathematical Accents}
+%
+There are many mathematical accents, however we will only mention the
+most common ones used in science.  The majority of the most common
+ones are provided by the \AmSTeX~packages.  The \pkg{mathdots}
+package redefines the spacing between dots for three and four dots.
+The number of dots is defined y the number of $d$'s in the
+\cs{dots} command.  There also exist dotless versions of $\imath$
+and $\jmath$, provided by \cs{imath} and \cs{jmath}
+respectively---useful for properly adding hats to orthogonal unit
+vectors.
+
+Some accents also have wide versions.  Some bar accents (including
+arrows) are denoted as \cs{over\marg{bar accent}}, while other wide
+accents are denoted as \cs{wide\marg{accent}}.  Table \ref{t:ma}
+contains some common mathematical accents and their respective
+commands.
+\begin{table}[!htbp]
+    \centering
+    \caption{Common mathematical accents.}
+    \label{t:ma}
+    \begin{tabular}{ccccccc}
+        $\hat{a}$ & $\check{a}$ & $\bar{a}$ & $\vec{a}$ & $\dot{a}$ & $\ddot{a}$ & $\tilde{a}$ \\
+        \cs{hat{a}} & \cs{check{a}} & \cs{bar{a}} & \cs{vec{a}} & \cs{dot{a}} & \cs{ddot{a}} & \cs{tilde{a}} \\
+        \multicolumn{2}{c}{$\mathring{a}$} & \multicolumn{2}{c}{$\widehat{abc}$} & $\sqrt{abc}$ & \multicolumn{2}{c}{$\sqrt[n]{abc}$} \\
+        \multicolumn{2}{c}{\texttt{\textbackslash mathring\{a\}}} & \multicolumn{2}{c}{\texttt{\textbackslash widehat{abc}}} & \cs{sqrt{abc}} & \multicolumn{2}{c}{\texttt{\textbackslash sqrt[n]{abc}}} \\
+        \multicolumn{3}{c}{$\underline{abc}$} & \multicolumn{4}{c}{$\overbrace{\underbrace{abc}}$} \\
+        \multicolumn{3}{c}{\texttt{\textbackslash underline\{abc\}}} & \multicolumn{4}{c}{\texttt{\textbackslash overbrace\{\textbackslash underbrace\{abc\}\}}} \\
+        & \multicolumn{5}{c}{$\overleftarrow{\underleftrightarrow{abc}}$} & \\
+        & \multicolumn{5}{c}{\texttt{\textbackslash overleftarrow\{\textbackslash underleftrightarrow\{abc\}\}}} & \\
+    \end{tabular}
+\end{table}
+
+Furthermore, \cs{overbrace{}} and \cs{underbrace{}} may have
+sub/superscripts automatically placed directly below and above them
+without resorting to %@todo \cs{limits\sub{}\sup{}}.  For example:
+\begin{verbatim}
+	z = \overbrace{\underbrace{x}_{\text{Real}} +
+	    i \underbrace{y}_{\text{Imaginary}}}^{\text{Complex number.}}
+\end{verbatim}
+\[z = \overbrace{\underbrace{x}_{\text{Real}} + i
+    \underbrace{y}_{\text{Imaginary}}}^{\text{Complex number.}}\]
+\LaTeX~will let the sub and superscripts take spacing priority, if
+this is a problem, placing the whole sub/superscript inside the
+\cs{mathclap{}} command will eliminate the extra spacing.
+%
+\subsection{Limits and Substack Commands}
+%
+Some symbols may have arguments and/or sub/supersripts in different
+places.  Placing the \cs{limits} command immediately after a
+symbol, moves the immediately following sub/superscript below and
+above it, respectively---having both at the same time is not a
+requirement.  The \cs{substack} command allows subscripts to be
+stacked.  Table \ref{t:limits} shows this.
+\begin{table}[!htbp]
+    \centering
+    \caption{Effect of the \texttt{\textbackslash limits} command.}
+    \label{t:limits}
+    \begin{tabular}{rcl}
+        \toprule
+        No \cs{limits} & \cs{limits} & Command\\
+        \midrule
+        $\sum_{i}$ & $\sum\limits_{i}$ & \verb|$\sum\limits_{i}$| \\[0.5cm]
+        $\sum^{j}$ & $\sum\limits^{j}$ & \verb|$\sum\limits^{j}$| \\[0.5cm]
+        $\sum_{i}^{j}$ & $\sum\limits_{i}^{j}$ & \verb|$\sum\limits_{i}^{j}$| \\[0.5cm]
+        $\sum_{\substack{1\le i\le n\\ i\ne j}}$ & $\sum\limits_{\substack{1\le i\le n\\ i\ne j}}$ & \verb|sum\limits_{\substack{1\le i\le n\\ i\ne j}}|\\[0.1cm]
+        \bottomrule
+    \end{tabular}
+\end{table}
+%
+\subsection{Scaled Delimiters}
+%
+It's very common to have large equations which require large
+delimiters, these are obtained by adding \cs{left}, \cs{right}
+and \cs{middle} (optional) before the actual delimiter, they also
+scale the delimiter according to the size of the equation.  It's
+important to remember that braces still need a backslash for \LaTeX~to
+print them, \cs{left\{} \cs{right\}}.  Sometimes the delimiter is
+unilateral (only one is printed), but their scaled versions must be
+closed (i.e. have both left and right components), in such cases a
+single full stop, \verb|.| becomes the closing delimiter. The
+following equations are good examples of this.
+\begin{verbatim}
+	\begin{align}
+	    &\exp(-\sum\limits_{i}^{N}\frac{E_{i}}{k_{b}T}) \\
+	    &\exp\left(-\sum\limits_{i}^{N}\frac{E_{i}}{k_{b}T}\right) \\
+	    &\int\limits_{a}^{b} \exp\left(-\frac{E}{k_{b}T}\right)\,\mathrm{d}E
+	    = -k_{b}T\exp\left(-\frac{E}{k_{b}T}\right)|_{a}^{b} \\
+	    &\int\limits_{a}^{b} \exp\left(-\frac{E}{k_{b}T}\right)\,\mathrm{d}E
+	    = \left.-k_{b}T\exp\left(-\frac{E}{k_{b}T}\right)\right|_{a}^{b}
+	\end{align}
+\end{verbatim}
+\begin{align}
+    &\exp(-\sum\limits_{i}^{N}\frac{E_{i}}{k_{b}T}) \\
+    &\exp\left(-\sum\limits_{i}^{N}\frac{E_{i}}{k_{b}T}\right) \\
+    &\int\limits_{a}^{b} \exp\left(-\frac{E}{k_{b}T}\right)\,\mathrm{d}E
+    = -k_{b}T\exp\left(-\frac{E}{k_{b}T}\right)|_{a}^{b} \\
+    &\int\limits_{a}^{b} \exp\left(-\frac{E}{k_{b}T}\right)\,\mathrm{d}E = \left.-k_{b}T\exp\left(-\frac{E}{k_{b}T}\right)\right|_{a}^{b}
+\end{align}
+%
+\subsection{Common Maths Typefaces}
+%
+Oftentimes, different mathematical objects have specific notations.
+For most applications no packages are needed, but loading both
+\pkg{bm} and \pkg{mathtools} packages cover most other cases.  Table
+\ref{t:mt} provides some examples.
+\begin{table}[!htbp]
+    \centering
+    \caption{Common mathematical typefaces.}
+    \label{t:mt}
+    \begin{tabular}{rl}
+        \toprule
+        Command & Result \\
+        \midrule
+        \cs{mathtt{ABCdef123}} & $\mathtt{ABCdef123}$ \\
+        \cs{mathbb{ABCdef123}} & $\mathbb{ABCdef123}$ \\
+        \cs{mathbf{ABCdef123}} & $\mathbf{ABCdef123}$ \\
+        \cs{mathcal{ABCdef123}} & $\mathcal{ABCdef123}$ \\
+        \cs{mathsf{ABCdef123}} & $\mathsf{ABCdef123}$ \\
+        \cs{mathit{ABCdef123}} & $\mathit{ABCdef123}$ \\
+        \cs{mathrm{ABCdef123}} & $\mathrm{ABCdef123}$ \\
+        \cs{mathfrak{ABCdef123}} & $\mathfrak{ABCdef123}$ \\
+        \cs{bm{ABCdef123}} & $\bm{ABCdef123}$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+%
+\section{Align}
+%
+The \verb|align| environment is the one you should be using for all
+your equation typesetting needs.  It does everything the
+\verb|equation| and \verb|eqnarray| packages do, but better.  The
+starred variant removes all equation numbers.  Its behaviour is
+exactly the same as \verb|tabular|, but does not require the user to
+declare the number of columns or alignment within them.  It also
+automatically defines all the lines it encloses as a mathematical
+environment, removing the need to add dollar signs.  Indiviual
+equations can be labeled by placing \cs{label{<label>}} before a
+line break, and referenced with \cs{eqref{}}.  Individual equation
+numbers can be removed with the \cs{nonumber} command before a line
+break.  The following equations are aligned on the equal sign:
+\begin{verbatim}
+	\begin{align}
+	    F(x) &= \int f(x)\,\mathrm{d}x + \mathrm{C}\\
+	    f(x) &= \frac{\mathrm{d}F(x)}{\mathrm{d}x} \nonumber\\
+	    g(x,y,z) &= 0
+	\end{align}
+\end{verbatim}
+\begin{align}
+    F(x) &= \int f(x)\,\mathrm{d}x + \mathrm{C}\\
+    f(x) &= \frac{\mathrm{d}F(x)}{\mathrm{d}x} \nonumber\\
+    g(x,y,z) &= 0
+\end{align}
+%
+\subsection{Subequations}
+%
+Subequations are declared by the environment of the same name, which
+wraps around other equation environments such as, \verb|align|,
+\verb|eqnarray| and \verb|equation|.  They have same behaviour as
+normal equations, including labeling and referencing.  Their numbering
+can also be customised via \cs{renewcommand{}{}}.  Using the
+aforementioned example within the \verb|subequations| environment
+yields:
+\begin{verbatim}
+	\begin{subequations}
+	    \begin{align}
+	        F(x) &= \int f(x)\,\mathrm{d}x + \mathrm{C} \label{e:int}\\
+	        f(x) &= \frac{\mathrm{d}F(x)}{\mathrm{d}x} \nonumber\\
+	        g(x,y,z) &= 0
+	    \end{align}
+	\end{subequations}
+\end{verbatim}
+\begin{subequations}
+	\begin{align}
+        F(x) &= \int f(x)\,\mathrm{d}x + \mathrm{C} \label{e:int}\\
+        f(x) &= \frac{\mathrm{d}F(x)}{\mathrm{d}x} \nonumber\\
+        g(x,y,z) &= 0
+    \end{align}
+\end{subequations}
+%
+\section{Matrices}
+%
+Matrices can be represented in many ways depending on the context, or
+to denote certain matrix operations.  Pre-defined matrices require the
+\pkg{mathtools} package.  The default types are shown in table
+\ref{t:mat}, which is edited from the mathematics entry in the
+\LaTeX~wikibook\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Mathematics}}.
+Non-starred versions center the columns by default, starred variants
+allow user-defined alignments.  The matrix environment must be
+declared within a maths environment.  Matrices can also be created
+using the \verb|array| environment, which is essentially the
+maths-mode version of the \verb|tabular| environment.
+\begin{table}[!htbp]
+    \centering
+    \caption{Matrix types.}
+    \label{t:mat}
+    \begin{tabular}{cc}
+        \toprule
+        Command & Delimiter \\
+        \midrule
+        \verb|pmatrix| & (\quad) \\
+        \verb|bmatrix| & [\quad] \\
+        \verb|Bmatrix| & \{\quad\} \\
+        \verb|vmatrix| & |\quad| \\
+        \verb|Vmatrix| & $\|\quad\|$ \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+%
+\subsection{Aligned and Array}
+%
+There are times when annotating equations is useful for the reader, or
+desired by the author.  In cases such as these, the \verb|aligned|
+provides a quick solution, though it only provides a single ampersand
+for aligning items.  In cases where more than one ampersand is needed
+use \verb|array| instead, which is the maths equivalent of
+\verb|tabular|.\footnote{They are used and declared in exactly the
+  same way; only \texttt{tabular} is used within normal text, and
+  \texttt{array} within maths environments.}
+\begin{verbatim}
+	\begin{align}
+	    \left.
+	        \begin{aligned}
+	            f(x,y,z) &= \alpha x + \beta y + \gamma z + \delta \\
+	            f(x,y) &= \alpha x + \beta y + \gamma \\
+	            f(x) &= \alpha x + \beta
+	        \end{aligned}
+	    \right\}\text{Linear equations.}
+	\end{align}
+\end{verbatim}
+\begin{align}
+    \left.
+    \begin{aligned}
+        f(x,y,z) &= \alpha x + \beta y + \gamma z + \delta \\
+        f(x,y) &= \alpha x + \beta y + \gamma\\
+        f(x) &= \alpha x + \beta
+    \end{aligned}
+    \right\}\text{Linear equations.}
+\end{align}
+%
+\section{Cases}
+%
+The \verb|cases| environment allows the user to define piecewise
+functions without the pain of recurring to \cs{aligned} and
+delimiter scaling.  Similarly to the \verb|eqnarray| and
+\verb|aligned| environments, it provides a single ampersand for
+aligning.  Take eq. \eqref{e:abs} for example.  There also exists
+\verb|dcases|, which provides a display version of the
+environment---it properly scales symbols---as shown in eqs.
+\eqref{e:case} and \eqref{e:dcases}.  It also has a starred version
+shown in Eq. \eqref{e:dcases*}, which sets everything to the right of
+the ampersand to normal text---therefore all maths in this region must
+be within single dollar signs.
+\begin{verbatim}
+\begin{align}
+    |f(x) + b| + c & =  \begin{cases}
+                            -f(x) - b + c & \textrm{if } x < 0 \\
+                            f(x) + b + c & \textrm{otherwise}
+                        \end{cases} \label{e:abs}\\
+    g(x) & =    \begin{cases}
+                    \int f(x)\,\mathrm{d}x & \textrm{if } x < 0\\
+                    0 & \textrm{otherwise}
+                \end{cases} \label{e:case} \\
+    g(x) & =    \begin{dcases}
+                    \int f(x)\,\mathrm{d}x & \textrm{if } x < 0\\
+	                0 & \textrm{otherwise}
+                \end{dcases} \label{e:dcases} \\
+    g(x) & =    \begin{dcases*}
+                    \int f(x)\,\mathrm{d}x & if $x < 0$\\
+                    0 & otherwise
+                \end{dcases*} \label{e:dcases*}
+	\end{align}
+\end{verbatim}
+\begin{align}
+    |f(x) + b| + c & =  \begin{cases}
+                            -f(x) - b + c & \textrm{if } x < 0 \\
+                            f(x) + b + c & \textrm{otherwise}
+                        \end{cases} \label{e:abs}\\
+    g(x) & =    \begin{cases}
+                    \int f(x)\,\mathrm{d}x & \textrm{if } x < 0\\
+                    0 & \textrm{otherwise}
+                \end{cases} \label{e:case} \\
+    g(x) & =    \begin{dcases}
+                    \int f(x)\,\mathrm{d}x & \textrm{if } x < 0\\
+                    0 & \textrm{otherwise}
+                \end{dcases} \label{e:dcases} \\
+    g(x) & =    \begin{dcases*}
+                    \int f(x)\,\mathrm{d}x & if $x < 0$\\
+                    0 & otherwise
+                \end{dcases*} \label{e:dcases*}
+\end{align}
+%
